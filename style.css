@@ -1,0 +1,405 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500&display=swap");
+
+@keyframes animationUpward {
+  0% {
+    transform: scale(0) translateY(0) rotate(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.5) translateY(-200px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes animationDownward {
+  0% {
+    transform: scale(0) translateY(0) rotate(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.2) translateY(150px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* General */
+body {
+  color: #fff;
+  background-color: #111111;
+  font-family: "Noto Sans", sans-serif;
+  font-size: 1.2rem;
+}
+
+button {
+  font-size: 1.2rem;
+  font-family: "Noto Sans", sans-serif;
+}
+
+.container {
+  width: 100%;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin: 0 auto;
+}
+
+.row {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.col-1 {
+  flex: 1 1 8.33333333333%;
+  max-width: 8.33333333333%;
+}
+
+.col-2 {
+  flex: 1 1 16.6666666667%;
+  max-width: 16.6666666667%;
+}
+
+.col-3 {
+  flex: 1 1 25%;
+  max-width: 25%;
+}
+
+.col-4 {
+  flex: 1 1 33.3333333333%;
+  max-width: 33.3333333333%;
+}
+
+.col-5 {
+  flex: 1 1 41.6666666667%;
+  max-width: 41.6666666667%;
+}
+
+.col-6 {
+  flex: 1 1 50%;
+  max-width: 50%;
+}
+
+.col-7 {
+  flex: 1 1 58.3333333333%;
+  max-width: 58.3333333333%;
+}
+
+.col-8 {
+  flex: 1 1 66.6666666667%;
+  max-width: 66.6666666667%;
+}
+
+.col-9 {
+  flex: 1 1 75%;
+  max-width: 75%;
+}
+
+.col-10 {
+  flex: 1 1 83.3333333333%;
+  max-width: 83.3333333333%;
+}
+
+.col-11 {
+  flex: 1 1 91.6666666667%;
+  max-width: 91.6666666667%;
+}
+
+.col-12 {
+  flex: 1 1 100%;
+  max-width: 100%;
+}
+
+/* Navbar section */
+.navbar {
+  margin: auto;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 10px 5%;
+}
+
+.navbar-brand {
+  margin-right: auto;
+  cursor: pointer;
+  padding: 4px;
+  text-align: center;
+}
+
+.navbar-brand img {
+  width: 50px;
+  object-fit: cover;
+}
+
+.nav-link {
+  padding: 4px;
+}
+
+.nav-link .navbar-list {
+  list-style-type: none;
+}
+
+.nav-link .navbar-list .navbar-li {
+  text-align: center;
+  display: inline-block;
+  transition: all 0.5s ease;
+  padding: 0 20px;
+}
+
+.nav-link .navbar-list .navbar-li :hover {
+  color: rgb(206, 93, 235);
+}
+
+.nav-link .navbar-list .navbar-li a {
+  text-decoration: none;
+  color: #fff;
+  position: relative;
+}
+
+.nav-link .navbar-list .navbar-li a::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 25%;
+  right: 25%;
+  border: 1px rgb(206, 93, 235) solid;
+  opacity: 0;
+  transition: all 0.5s ease;
+}
+
+.nav-link .navbar-list .navbar-li a:hover::after {
+  opacity: 1;
+}
+
+.nav-collapse {
+  padding: 20px 15px;
+  margin-left: 20px;
+  cursor: pointer;
+  border: 0.5px solid rgb(193, 60, 226);
+  border-radius: 8px;
+  display: none;
+  transition: all 0.5s ease;
+}
+
+.nav-collapse:hover {
+  background-color: rgb(193, 60, 226);
+  border: 0.5 solid transparent;
+}
+
+.nav-collapse .navbar-bar {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background-color: #fff;
+  position: relative;
+}
+
+.nav-collapse .navbar-bar::before {
+  position: absolute;
+  content: "";
+  top: 5px;
+  display: block;
+  width: 20px;
+  height: 2px;
+  background-color: #fff;
+}
+
+.nav-collapse .navbar-bar::after {
+  position: absolute;
+  content: "";
+  top: -5px;
+  display: block;
+  width: 20px;
+  height: 2px;
+  background-color: #fff;
+}
+
+/*Button section*/
+
+.btn {
+  padding: 10px 25px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  color: #fff;
+}
+
+.btn-outline {
+  background-color: transparent;
+  background-image: none;
+  border: rgb(206, 93, 235) solid 1px;
+  transition: all 0.5s ease;
+}
+
+.btn-outline:hover {
+  background-color: rgb(206, 93, 235);
+}
+
+.btn-fill {
+  border: 1px solid transparent;
+  background-image: linear-gradient(
+    to right,
+    rgb(206, 93, 235),
+    rgb(151, 72, 255)
+  );
+  transition: all 0.5s ease;
+}
+
+.btn-fill:hover {
+  background-image: linear-gradient(
+    to right,
+    rgb(193, 60, 226),
+    rgb(129, 40, 245)
+  );
+}
+
+.btn-login {
+  margin-left: 15px;
+}
+
+.btn-find {
+  display: block;
+  margin: 50px auto;
+}
+
+.box {
+  height: 200px;
+}
+
+.box1 {
+  background-color: red;
+}
+
+.box2 {
+  background-color: blue;
+}
+.box3 {
+  background-color: purple;
+}
+
+.box4 {
+  background-color: aqua;
+}
+
+/* Homepage section */
+
+.body-container{
+  padding: 0 100px;
+}
+
+.hero-container {
+  margin: 100px 0;
+  height: fit-content;
+  position: relative;
+}
+
+#hero-title {
+  font-size: 50px;
+  text-align: center;
+  width: 35%;
+  margin: auto;
+}
+
+#hero-subtitle {
+  font-weight: 400;
+  font-size: 30px;
+  text-align: center;
+  width: 50%;
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.x-image,
+.o-image {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  z-index: -1;
+}
+
+.x1 {
+  top: 10%;
+  left: 20%;
+  animation: animationDownward 10s linear infinite;
+}
+
+.x2 {
+  bottom: 5%;
+  right: 10%;
+  animation: animationUpward 12s linear infinite;
+}
+
+.x3 {
+  bottom: -10%;
+  left: 50%;
+  animation: animationDownward 15s linear infinite;
+}
+
+.o1 {
+  bottom: 3%;
+  left: 5%;
+  animation: animationUpward 20s linear infinite;
+}
+
+.o2 {
+  top: 5%;
+  right: 5%;
+  animation: animationDownward 15s linear infinite;
+}
+
+.o3 {
+  top: -10%;
+  left: 45%;
+  animation: animationDownward 20s linear infinite;
+}
+
+/* Responsive design*/
+@media all and (max-width: 920px) {
+  .navbar {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .navbar-brand {
+    order: 1 1 100%;
+    flex: 1;
+    display: block;
+    text-align: left;
+  }
+
+  .nav-link {
+    order: 3;
+    padding: 15px 0px;
+    flex: 1 1 100%;
+  }
+  .nav-link .navbar-list {
+    transition: 0.5s ease-in;
+  }
+  .nav-link .navbar-list .navbar-li {
+    padding: 10px 0;
+    width: 100%;
+    text-align: center;
+    display: none;
+  }
+  .nav-link .navbar-list .navbar-li.active {
+    display: block;
+  }
+
+  .nav-button {
+    width: auto;
+    display: block;
+    order: 2;
+  }
+
+  .nav-collapse {
+    order: 2;
+    display: inline-block;
+  }
+  #hero-title,
+  #hero-subtitle {
+    width: 75%;
+  }
+}
