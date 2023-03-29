@@ -309,7 +309,7 @@ footer {
   border: 1px solid rgb(206, 93, 235);
   padding: 50px 40px;
   border-radius: 8px;
-  transition: all 0.5s ease-in-out;
+  transition: all 0.25s ease-in-out;
 }
 
 .job-cards .job:hover .btn-view-job {
@@ -408,12 +408,17 @@ footer {
   margin-bottom: 20px;
 }
 
-.user-profile-container .btn-edit-account,
-.search-box .search-section .btn-search {
+.user-profile-container .btn-edit-account {
   background-image: none;
   background-color: #fff;
   border-color: transparent;
-  color: rgb(206, 93, 235);
+  color: rgb(151, 72, 255);
+  width: 100%;
+  transition: all 0.5s ease;
+}
+
+.user-profile-container .btn-edit-account:hover {
+  border-color: rgb(151, 72, 255);
 }
 
 .search-box {
@@ -421,6 +426,17 @@ footer {
   padding: 20px;
   background-image: var(--gradient-color);
   margin-bottom: 20px;
+}
+
+.search-box .search-section .btn-search {
+  background-image: none;
+  background-color: #fff;
+  border-color: transparent;
+  color: rgb(151, 72, 255);
+}
+
+.search-box .search-section .btn-search:hover {
+  border-color: rgb(151, 72, 255);
 }
 
 .search-box .search-box-title {
@@ -435,12 +451,26 @@ footer {
   column-gap: 10px;
 }
 
+.search-box .job-result-number {
+  color: rgb(151, 72, 255);
+  margin-top: 30px;
+  border-radius: 8px;
+  padding: 15px;
+  background-color: #fff;
+  text-align: center;
+}
+
 .search-box .search-section .search-input {
   flex: 1 1 auto;
   position: relative;
   background-color: #fff;
   border-radius: 8px;
-  border-color: transparent;
+  border: 1px solid transparent;
+  transition: all 0.5s ease;
+}
+
+.search-box .search-section .search-input:hover {
+  border-color: rgb(151, 72, 255);
 }
 
 .search-box .search-section .search-input i {
@@ -463,6 +493,15 @@ footer {
   text-indent: 40px;
   font-size: 18px;
   font-family: "Noto Sans", sans-serif;
+}
+
+.filter-reset-container{
+  display: flex;
+  justify-content: space-between;
+  background-image: var(--gradient-color);
+  background-color: #fff;
+  padding: 10px 20px;
+  border-radius: 8px;
 }
 
 .x-image,
@@ -528,7 +567,13 @@ footer {
 }
 
 .footer-container .footer-list .footer-column-list .item-li {
+  font-size: 18px;
   margin-top: 30px;
+  transition: all 0.25s ease;
+}
+
+.footer-container .footer-list .footer-column-list .item-li:hover {
+  opacity: 1;
 }
 
 .item-text {
