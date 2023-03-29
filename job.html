@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>JobFast</title>
+    <title>Job</title>
     <link rel="stylesheet" href="./css/style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -24,8 +24,8 @@
       </div>
       <div class="nav-link">
         <ul class="navbar-list">
-          <li class="navbar-li"><a href="#">Home</a></li>
-          <li class="navbar-li"><a href="./job.html">Jobs</a></li>
+          <li class="navbar-li"><a href="index.html">Home</a></li>
+          <li class="navbar-li"><a href="">Jobs</a></li>
           <li class="navbar-li"><a href="#">Companies</a></li>
           <li class="navbar-li"><a href="#">Blog</a></li>
         </ul>
@@ -38,81 +38,37 @@
     </div>
 
     <div class="body-container">
-      <div class="container hero-container">
-        <h1 id="hero-title">Hire the very best of Your Talents</h1>
-        <h3 id="hero-subtitle">
-          JobFast is an exclusive job network for top professionals from all
-          fields. We offer a chance for people like you to land your career
-          dream job.
-        </h3>
-        <button class="btn btn-fill btn-find">Find your dream job now!</button>
+      <div class="container job-container">
+        <div class="row">
+          <div class="col-3">
+            <div class="user-profile-container">
+              <img class="user-avatar" src="./images/person.png" alt="" />
+              <h3 class="user-name">Guess</h3>
+              <p class="user-profession">Not Sign In</p>
+              <button class="btn btn-fill btn-edit-account">Sign In</button>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="search-box">
+              <h3 class="search-box-title">Search Jobs</h3>
+              <div class="search-section">
+                <div class="search-input">
+                  <i class="fas fa-search"></i>
+                  <input type="text" name="" id="job-search-input" />
+                </div>
+                <button class="btn btn-outline btn-search">Search</button>
+              </div>
+            </div>
+            <div class="job-listing"></div>
+          </div>
+          <div class="col-3"></div>
+        </div>
         <img class="x-image x1" src="images/x.png" alt="" />
         <img class="x-image x2" src="images/x.png" alt="" />
         <img class="x-image x3" src="images/x.png" alt="" />
         <img class="o-image o1" src="images/o.png" alt="" />
         <img class="o-image o2" src="images/o.png" alt="" />
         <img class="o-image o3" src="images/o.png" alt="" />
-      </div>
-      <div class="container advertisement-container">
-        <h2 id="ad-title">Engaging With A Difference</h2>
-        <h4 id="ad-subtitle">
-          We have one of the world's largest network of big companies, ambitious
-          start-ups that love people like you. Business, tech talents and many
-          more alike.
-        </h4>
-        <div class="row job-cards">
-          <div class="col-4 job-card">
-            <div class="job job1">
-              <img class="job-img" src="./images/business.png" alt="" />
-              <h3 class="job-title">Finance</h3>
-              <p>
-                Use your skills to help companies find financial advice and
-                management.
-              </p>
-              <div class="job-stats">
-                <p>8K Online everyday</p>
-                <p>2K project done by Financial Expert</p>
-              </div>
-              <button class="btn btn-outline btn-view-job">
-                View Financial Jobs
-              </button>
-            </div>
-          </div>
-          <div class="col-4 job-card">
-            <div class="job job2">
-              <img class="job-img" src="./images/development.png" alt="" />
-              <h3 class="job-title">Developer</h3>
-              <p>
-                Find the best available software engineering jobs from big
-                techs, ambitious start-ups.
-              </p>
-              <div class="job-stats">
-                <p>12.4K Online everyday</p>
-                <p>4.5K project done by Developer</p>
-              </div>
-              <button class="btn btn-outline btn-view-job">
-                View Developer Jobs
-              </button>
-            </div>
-          </div>
-          <div class="col-4 job-card">
-            <div class="job job3">
-              <img class="job-img" src="./images/designer.png" alt="" />
-              <h3 class="job-title">Designer</h3>
-              <p>
-                Enhance your UI, UX and visual ideas through many available jobs
-                from around the world.
-              </p>
-              <div class="job-stats">
-                <p>3.4K Online everyday</p>
-                <p>6K project done by Financial Expert</p>
-              </div>
-              <button class="btn btn-outline btn-view-job">
-                View Designer Jobs
-              </button>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
 
@@ -170,6 +126,7 @@
         </div>
       </div>
     </footer>
+
+    <script src="./scripts/scripts.js"></script>
   </body>
-  <script src="./scripts/scripts.js"></script>
 </html>
