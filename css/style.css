@@ -1,9 +1,18 @@
 :root {
   --gradient-color: linear-gradient(
     to right,
-    rgb(206, 93, 235),
-    rgb(151, 72, 255)
+    rgb(255, 122, 0),
+    rgb(193, 94, 1)
   );
+
+  --gradient-hover-color: linear-gradient(
+    to right,
+    rgb(253, 133, 21),
+    rgb(210, 130, 55)
+  );
+
+  --primary-color: rgb(255, 122, 0);
+  --primary-color-hover: rgb(240, 139, 43);
 }
 
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500&display=swap");
@@ -44,8 +53,8 @@ a {
 }
 
 body {
-  color: #fff;
-  background-color: #111111;
+  color: var(--primary-color);
+  background-color: rgb(238, 238, 238);
   font-family: "Noto Sans", sans-serif;
   font-size: 1.2rem;
 }
@@ -172,12 +181,16 @@ footer {
 }
 
 .nav-link .navbar-list .navbar-li :hover {
-  color: rgb(206, 93, 235);
+  color: var(--primary-color-hover);
+}
+
+.nav-link .navbar-list .active-link.navbar-li a {
+  color: var(--primary-color);
 }
 
 .nav-link .navbar-list .navbar-li a {
   text-decoration: none;
-  color: #fff;
+  color: var(--primary-color);
   position: relative;
 }
 
@@ -187,7 +200,7 @@ footer {
   bottom: -10px;
   left: 25%;
   right: 25%;
-  border: 1px rgb(206, 93, 235) solid;
+  border: 1px var(--primary-color-hover) solid;
   opacity: 0;
   transition: all 0.5s ease;
 }
@@ -196,18 +209,22 @@ footer {
   opacity: 1;
 }
 
+.nav-link .navbar-list .active-link.navbar-li a::after {
+  opacity: 1;
+}
+
 .nav-collapse {
   padding: 20px 15px;
   margin-left: 20px;
   cursor: pointer;
-  border: 0.5px solid rgb(193, 60, 226);
+  border: 0.5px solid var(--primary-color);
   border-radius: 8px;
   display: none;
   transition: all 0.5s ease;
 }
 
 .nav-collapse:hover {
-  background-color: rgb(193, 60, 226);
+  background-color: var(--primary-color-hover);
   border: 0.5 solid transparent;
 }
 
@@ -215,7 +232,7 @@ footer {
   display: block;
   width: 20px;
   height: 2px;
-  background-color: #fff;
+  background-color: var(--primary-color);
   position: relative;
 }
 
@@ -226,7 +243,7 @@ footer {
   display: block;
   width: 20px;
   height: 2px;
-  background-color: #fff;
+  background-color: var(--primary-color);
 }
 
 .nav-collapse .navbar-bar::after {
@@ -236,7 +253,7 @@ footer {
   display: block;
   width: 20px;
   height: 2px;
-  background-color: #fff;
+  background-color: var(--primary-color);
 }
 
 /*Button section*/
@@ -252,12 +269,12 @@ footer {
 .btn-outline {
   background-color: transparent;
   background-image: none;
-  border: rgb(206, 93, 235) solid 1px;
+  border: var(--primary-color) solid 1px;
   transition: all 0.5s ease;
 }
 
 .btn-outline:hover {
-  background-color: rgb(206, 93, 235);
+  background-color: var(--primary-color);
 }
 
 .btn-fill {
@@ -267,7 +284,15 @@ footer {
 }
 
 .btn-fill:hover {
-  background-image: var(--gradient-color);
+  background-image: var(--gradient-hover-color);
+}
+
+.btn-register {
+  color: var(--primary-color);
+}
+
+.btn-register:hover {
+  color: #fff;
 }
 
 .btn-login {
@@ -276,7 +301,21 @@ footer {
 
 .btn-find {
   display: block;
+  width: fit-content;
   margin: 50px auto;
+}
+
+.btn-clear {
+  background-color: inherit;
+  background: none;
+  padding: 0;
+  border: none;
+  opacity: 0.7;
+  transition: all 0.25s ease;
+}
+
+.btn-clear:hover {
+  opacity: 1;
 }
 
 /* Homepage section */
@@ -306,19 +345,26 @@ footer {
 }
 
 .job-cards .job {
-  border: 1px solid rgb(206, 93, 235);
+  height: 100%;
+  border: 1px solid var(--primary-color);
   padding: 50px 40px;
   border-radius: 8px;
   transition: all 0.25s ease-in-out;
 }
 
-.job-cards .job:hover .btn-view-job {
+.job-cards .job .btn-view-job {
   background-color: #fff;
-  color: rgb(206, 93, 235);
+  color: var(--primary-color);
+}
+
+.job-cards .job:hover .btn-view-job {
+  background-color: var(--primary-color-hover);
+  color: #fff;
 }
 
 .job-cards .job:hover {
-  background-color: rgb(206, 93, 235);
+  background-color: var(--primary-color);
+  color: #fff;
 }
 
 .job-cards .job .job-img {
@@ -374,7 +420,7 @@ footer {
 
 .job-container {
   position: relative;
-  margin: 100px 0;
+  margin: 50px 0;
 }
 
 .job-container .row > [class*="col-"] {
@@ -386,7 +432,7 @@ footer {
   border-radius: 8px;
   padding: 50px;
   margin-bottom: 50px;
-  background-image: var(--gradient-color);
+  background-color: #fff;
 }
 
 .user-profile-container .user-avatar {
@@ -397,46 +443,45 @@ footer {
 }
 
 .user-profile-container .user-name {
+  color: var(--primary-color);
   font-weight: 600;
   font-size: 30px;
   margin-bottom: 10px;
 }
 
 .user-profile-container .user-profession {
+  color: var(--primary-color);
   font-size: 15px;
-  opacity: 0.7;
   margin-bottom: 20px;
 }
 
 .user-profile-container .btn-edit-account {
+  display: block;
+  border: none;
   background-image: none;
-  background-color: #fff;
-  border-color: transparent;
-  color: rgb(151, 72, 255);
+  background-color: rgb(255, 122, 0, 0.2);
+  color: var(--primary-color);
   width: 100%;
   transition: all 0.5s ease;
-}
-
-.user-profile-container .btn-edit-account:hover {
-  border-color: rgb(151, 72, 255);
 }
 
 .search-box {
   border-radius: 8px;
   padding: 20px;
-  background-image: var(--gradient-color);
+  background-color: #fff;
   margin-bottom: 20px;
 }
 
 .search-box .search-section .btn-search {
   background-image: none;
   background-color: #fff;
-  border-color: transparent;
-  color: rgb(151, 72, 255);
+  border-color: var(--primary-color);
+  color: var(--primary-color);
 }
 
 .search-box .search-section .btn-search:hover {
-  border-color: rgb(151, 72, 255);
+  color: #fff;
+  background-color: var(--primary-color);
 }
 
 .search-box .search-box-title {
@@ -452,11 +497,11 @@ footer {
 }
 
 .search-box .job-result-number {
-  color: rgb(151, 72, 255);
+  color: var(--primary-color);
   margin-top: 30px;
   border-radius: 8px;
   padding: 15px;
-  background-color: #fff;
+  background-color: rgba(255, 122, 0, 0.2);
   text-align: center;
 }
 
@@ -465,16 +510,16 @@ footer {
   position: relative;
   background-color: #fff;
   border-radius: 8px;
-  border: 1px solid transparent;
+  border: 1px solid var(--primary-color);
   transition: all 0.5s ease;
 }
 
 .search-box .search-section .search-input:hover {
-  border-color: rgb(151, 72, 255);
+  border-color: var(--primary-color-hover);
 }
 
 .search-box .search-section .search-input i {
-  color: rgba(206, 93, 235, 0.5);
+  color: var(--primary-color);
   position: absolute;
   right: auto;
   top: 50%;
@@ -489,66 +534,180 @@ footer {
   border: none;
   width: 100%;
   background-color: transparent;
-  color: rgba(206, 93, 235, 0.5);
+  color: var(--primary-color);
   text-indent: 40px;
   font-size: 18px;
   font-family: "Noto Sans", sans-serif;
 }
 
-.filter-reset-container{
+.filter-reset-container {
   display: flex;
   justify-content: space-between;
-  background-image: var(--gradient-color);
   background-color: #fff;
-  padding: 10px 20px;
+  padding: 20px;
   border-radius: 8px;
 }
 
-.x-image,
-.o-image {
-  width: 50px;
-  height: 50px;
-  position: absolute;
-  z-index: -1;
+.filter-reset-container .job-filter-title {
+  font-size: 22px;
+  font-weight: 500;
 }
 
-.x1 {
-  top: 10%;
-  left: 20%;
-  animation: animationDownward 10s linear infinite;
+.filter-reset-container .btn-clear {
+  font-size: 18px;
+  color: var(--primary-color);
 }
 
-.x2 {
-  bottom: 5%;
-  right: 10%;
-  animation: animationUpward 12s linear infinite;
+.form-group {
+  margin-top: 30px;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #fff;
 }
 
-.x3 {
-  bottom: -10%;
-  left: 50%;
-  animation: animationDownward 15s linear infinite;
+.form-group .form-group-header {
+  display: flex;
+  justify-content: space-between;
 }
 
-.o1 {
-  bottom: 3%;
-  left: 5%;
-  animation: animationUpward 20s linear infinite;
+.form-group .form-group-header .form-group-label {
+  font-size: 18px;
+  color: var(--primary-color);
 }
 
-.o2 {
-  top: 5%;
-  right: 5%;
-  animation: animationDownward 15s linear infinite;
+.form-group .form-group-header .btn-clear {
+  font-size: 16px;
+  color: var(--primary-color);
 }
 
-.o3 {
-  top: -10%;
-  left: 45%;
-  animation: animationDownward 20s linear infinite;
+.form-group .checkbox-row {
+  display: flex;
+  margin-top: 20px;
+  justify-content: space-between;
+}
+
+.form-group .checkbox-row label {
+  margin-left: 10px;
+  color: var(--primary-color);
+  opacity: 0.8;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.form-group .checkbox-row input[type="checkbox"] {
+  vertical-align: middle;
+  accent-color: var(--primary-color);
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.form-group .checkbox-row p {
+  font-size: 16px;
+  color: var(--primary-color);
+  opacity: 0.6;
+}
+
+.job-listing {
+  margin-top: 30px;
+  height: 500px;
+  overflow-y: scroll;
+}
+
+.job-listing .job-item {
+  margin: 20px 0;
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 8px;
+  color: #868686;
+}
+
+.job-listing .job-item .job-header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 20px;
+}
+
+.job-listing .job-item .job-header .save-icon {
+  margin-left: auto;
+  border-radius: 8px;
+  padding: 10px 15px;
+  background-color: var(--primary-color);
+}
+
+.job-listing .job-item .job-header img {
+  width: 15%;
+}
+
+.job-listing .job-item .job-header .job-company {
+  margin-left: 20px;
+}
+
+.job-listing .job-item .job-header .job-company .job-name {
+  font-size: 25px;
+  color: #000;
+}
+
+.job-listing .job-item .job-header .job-company h3{
+  font-size: 18px;
+}
+
+.job-listing .job-item .job-description {
+  font-size: 16px;
+  margin: 20px 15px;
+  text-align: justify;
+}
+
+.job-listing .job-item .button-row-wrapper {
+  display: flex;
+}
+
+.job-listing .job-item .button-row-wrapper .skill {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  cursor: default;
+  margin-right: 10px;
+  padding: 5px 16px;
+  font-weight: 600;
+  color: #000;
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.job-listing .job-item .button-row-wrapper .btn-apply {
+  display: flex;
+  font-size: 16px;
+  align-items: center;
+  margin-left: auto;
+  padding: 5px 20px;
+  width: fit-content;
+  color: var(--primary-color);
+}
+
+.job-listing .job-item .button-row-wrapper .btn-apply:hover {
+  color: #fff;
+}
+
+.page-row{
+  width: fit-content;
+  margin: 40px auto;
+  display: flex;
+  column-gap: 10px;
+}
+
+.page-row .page-index{
+  padding: 10px 20px;
+  background-color: var(--primary-color);
+  color: #fff;
+  border-radius: 8px;
 }
 
 /* Footer section */
+
+.footer-container {
+  color: #fff;
+}
 
 .footer-container .footer-list {
   padding: 30px;
