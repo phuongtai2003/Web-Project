@@ -818,22 +818,4 @@ footer {
     text-align: center;
     display: none;
   }
-  .nav-link .navbar-list .navbar-li.active {
-    display: block;
-  }
-
-  .nav-button {
-    width: auto;
-    display: block;
-    order: 2;
-  }
-
-  .nav-collapse {
-    order: 2;
-    display: inline-block;
-  }
-  #hero-title,
-  #hero-subtitle {
-    width: 100%;
-  }
 }
