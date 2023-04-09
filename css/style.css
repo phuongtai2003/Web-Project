@@ -41,6 +41,15 @@ footer {
   background-image: var(--gradient-color);
 }
 
+.fa-star {
+  color: var(--slim-bg-color);
+  margin: 0 4px;
+}
+
+.checked {
+  color: var(--primary-color);
+}
+
 .container {
   width: 100%;
   padding-left: 20px;
@@ -56,63 +65,63 @@ footer {
 }
 
 .col-1 {
-  flex: 1 1 auto;
-  width: 8.33333333333%;
+  flex: 1 1 8.33333333333%;
+  max-width: 8.33333333333%;
 }
 
 .col-2 {
-  flex: 1 1 auto;
-  width: 16.6666666667%;
+  flex: 1 1 16.6666666667%;
+  max-width: 16.6666666667%;
 }
 
 .col-3 {
-  flex: 1 1 auto;
-  width: 25%;
+  flex: 1 1 25%;
+  max-width: 25%;
 }
 
 .col-4 {
-  flex: 1 1 auto;
-  width: 33.3333333333%;
+  flex: 1 1 33.3333333333%;
+  max-width: 33.3333333333%;
 }
 
 .col-5 {
-  flex: 1 1 auto;
-  width: 41.6666666667%;
+  flex: 1 1 41.6666666667%;
+  max-width: 41.6666666667%;
 }
 
 .col-6 {
-  flex: 1 1 auto;
-  width: 50%;
+  flex: 1 1 50%;
+  max-width: 50%;
 }
 
 .col-7 {
-  flex: 1 1 auto;
-  width: 58.3333333333%;
+  flex: 1 1 58.3333333333%;
+  max-width: 58.3333333333%;
 }
 
 .col-8 {
-  flex: 1 1 auto;
-  width: 66.6666666667%;
+  flex: 1 1 66.6666666667%;
+  max-width: 66.6666666667%;
 }
 
 .col-9 {
-  flex: 1 1 auto;
-  width: 75%;
+  flex: 1 1 75%;
+  max-width: 75%;
 }
 
 .col-10 {
-  flex: 1 1 auto;
-  width: 83.3333333333%;
+  flex: 1 1 83.3333333333%;
+  max-width: 83.3333333333%;
 }
 
 .col-11 {
-  flex: 1 1 auto;
-  width: 91.6666666667%;
+  flex: 1 1 91.6666666667%;
+  max-width: 91.6666666667%;
 }
 
 .col-12 {
-  flex: 1 1 auto;
-  width: 100%;
+  flex: 1 1 100%;
+  max-width: 100%;
 }
 
 /* Navbar section */
@@ -608,7 +617,7 @@ footer {
 }
 
 .job-listing .job-item .job-header img {
-  width: 15%;
+  width: 10%;
 }
 
 .job-listing .job-item .job-header .job-company {
@@ -929,6 +938,147 @@ footer {
 
 .login-container .login-form-container .option-row {
   margin: 20px 0 0 0;
+}
+
+/*Company Details*/
+.company-detail-container {
+  margin: 100px 0px;
+  padding: 0px 100px;
+}
+
+/*Company detail Header*/
+.company-detail-container .company-detail-header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.company-detail-container .company-detail-header .img-container {
+  padding: 20px;
+  width: 15%;
+  background-color: #fff;
+  border-radius: 16px;
+}
+
+.company-detail-container .company-detail-header .img-container img {
+  width: 100%;
+}
+
+.company-detail-container .company-detail-header .company-name {
+  margin-left: 50px;
+}
+
+.company-detail-container .company-detail-header .company-name h1 {
+  margin-bottom: 20px;
+  font-size: 50px;
+}
+
+.company-detail-container .company-detail-header .btn-follow-company {
+  margin-left: auto;
+}
+
+.company-detail-container .company-detail-header .company-name .employee-site {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.company-detail-container
+  .company-detail-header
+  .company-name
+  .employee-site
+  a {
+  color: var(--primary-color);
+  font-size: 16px;
+}
+
+/*Company detail description*/
+
+.company-detail-container .company-description-container {
+  width: 100%;
+  margin-top: 50px;
+}
+
+.company-detail-container .company-description-container .col-wrapper {
+  padding: 10px;
+}
+
+/*Company detail introduction*/
+
+.company-detail-container .company-description-container .company-introduction,
+.company-detail-container .company-description-container .company-basic-info,
+.company-detail-container .company-description-container .company-review {
+  padding: 20px;
+  border-radius: 16px;
+  background-color: #fff;
+}
+
+.company-detail-container
+  .company-description-container
+  .company-introduction
+  h2 {
+  margin-bottom: 20px;
+  font-size: 30px;
+}
+
+.company-detail-container
+  .company-description-container
+  .company-introduction
+  p {
+  line-height: 1.7rem;
+}
+
+/*Company detail basic info*/
+
+.company-detail-container
+  .company-description-container
+  .company-basic-info
+  h2 {
+  margin-bottom: 20px;
+  font-size: 30px;
+}
+
+.company-detail-container
+  .company-description-container
+  .company-basic-info
+  .info-row {
+  display: flex;
+  margin: 20px 0;
+}
+
+.company-detail-container
+  .company-description-container
+  .company-basic-info
+  .info-row
+  strong {
+  margin-right: 15px;
+}
+
+/* Company Review */
+
+.company-detail-container .company-description-container .company-review {
+  margin-top: 20px;
+}
+
+.company-detail-container
+  .company-description-container
+  .company-review
+  .overall-rating {
+  display: flex;
+  align-items: baseline;
+}
+
+.company-detail-container
+  .company-description-container
+  .company-review
+  .overall-rating
+  strong {
+  margin-right: 5px;
+}
+
+.company-detail-container .company-description-container .company-review h2 {
+  margin-bottom: 20px;
+  font-size: 30px;
 }
 
 /* Footer section */

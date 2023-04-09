@@ -1,3 +1,10 @@
+<?php 
+    $comp_id = $_GET['comp_details'] ?? '';
+    if(!empty($comp_id)){
+      $_SESSION['comp_id'] = $comp_id;
+      header("Location: ?page=company_details");
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>

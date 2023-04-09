@@ -1,4 +1,5 @@
 <?php
+    session_start();
     $page_name = "Home";
     $page_url = "./controller/home.php";
     if(isset($_GET['page']) && isset($_GET['page'])!=""){

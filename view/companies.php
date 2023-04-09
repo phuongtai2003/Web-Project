@@ -17,7 +17,7 @@
                 </p>
               </div>
               <div class="company-card-footer">
-                <a class="btn btn-outline btn-company-detail" href=""
+                <a class="btn btn-outline btn-company-detail" href="?comp_details=1"
                   >View Detail</a
                 >
                 <a class="btn btn-fill btn-company-job" href="">View Jobs</a>

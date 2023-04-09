@@ -10,6 +10,7 @@ navbarCollapseButton.addEventListener("click", () => {
 function changeMode() {
   seekerOption = document.querySelector("#seeker-option");
   if (seekerOption.checked) {
+    document.querySelector("label[for='country-field']").innerHTML = "Nationality";
     document.querySelector(".company-group").style.display = "none";
     document.querySelector(".name-group").style.display = "block";
     document.querySelector("#company-field").disabled = true;
@@ -18,6 +19,7 @@ function changeMode() {
     document.querySelector("#lastname-field").disabled = false;
     document.querySelector("label[for='birth-date-field']").innerHTML = "Birth Date";
   } else {
+    document.querySelector("label[for='country-field']").innerHTML = "Country";
     document.querySelector(".company-group").style.display = "block";
     document.querySelector(".name-group").style.display = "none";
     document.querySelector("#company-field").disabled = false;

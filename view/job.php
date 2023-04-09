@@ -1,3 +1,6 @@
+<?php 
+    $job_name = $_GET['jobName'] ?? '';
+?>
 <div class="container job-container">
         <div class="row">
           <div class="col-3">
@@ -14,7 +17,7 @@
               <div class="search-section">
                 <div class="search-input">
                   <i class="fas fa-search"></i>
-                  <input type="text" name="" id="job-search-input" />
+                  <input type="text" name="" id="job-search-input" value = '<?= $job_name?>' />
                 </div>
                 <button class="btn btn-outline btn-search">Search</button>
               </div>
@@ -26,10 +29,10 @@
               <!--Job1-->
               <div class="job-item">
                 <div class="job-header">
-                  <img src="./images/o.png" alt="" />
+                  <img src="./images/google.png" alt="" />
                   <div class="job-company">
                     <h2 class="job-name">Senior C# Developer</h2>
-                    <h3>O Company</h3>
+                    <h3>Google Inc</h3>
                   </div>
                   <button class="btn save-icon">
                     <i class="fa-regular fa-bookmark"></i>
@@ -50,10 +53,10 @@
               <!--Job2-->
               <div class="job-item">
                 <div class="job-header">
-                  <img src="./images/o.png" alt="" />
+                  <img src="./images/google.png" alt="" />
                   <div class="job-company">
                     <h2 class="job-name">Senior C# Developer</h2>
-                    <h3>O Company</h3>
+                    <h3>Google Inc</h3>
                   </div>
                   <button class="btn save-icon">
                     <i class="fa-regular fa-bookmark"></i>
@@ -74,10 +77,10 @@
               <!--Job3-->
               <div class="job-item">
                 <div class="job-header">
-                  <img src="./images/o.png" alt="" />
+                  <img src="./images/google.png" alt="" />
                   <div class="job-company">
                     <h2 class="job-name">Senior C# Developer</h2>
-                    <h3>O Company</h3>
+                    <h3>Google Inc</h3>
                   </div>
                   <button class="btn save-icon">
                     <i class="fa-regular fa-bookmark"></i>
@@ -98,10 +101,10 @@
               <!--Job3-->
               <div class="job-item">
                 <div class="job-header">
-                  <img src="./images/o.png" alt="" />
+                  <img src="./images/twitter.png" alt="" />
                   <div class="job-company">
                     <h2 class="job-name">Senior C# Developer</h2>
-                    <h3>O Company</h3>
+                    <h3>Twitter Inc</h3>
                   </div>
                   <button class="btn save-icon">
                     <i class="fa-regular fa-bookmark"></i>
@@ -122,10 +125,10 @@
               <!--Job3-->
               <div class="job-item">
                 <div class="job-header">
-                  <img src="./images/o.png" alt="" />
+                  <img src="./images/fb.png" alt="" />
                   <div class="job-company">
                     <h2 class="job-name">Senior C# Developer</h2>
-                    <h3>O Company</h3>
+                    <h3>Facebook Inc</h3>
                   </div>
                   <button class="btn save-icon">
                     <i class="fa-regular fa-bookmark"></i>
