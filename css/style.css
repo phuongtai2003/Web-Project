@@ -1,43 +1,14 @@
 :root {
-  --gradient-color: linear-gradient(
-    to right,
-    rgb(255, 122, 0),
-    rgb(193, 94, 1)
-  );
+  --gradient-color: linear-gradient(to right, #8aeffa, #18c5ef);
 
-  --gradient-hover-color: linear-gradient(
-    to right,
-    rgb(253, 133, 21),
-    rgb(210, 130, 55)
-  );
+  --gradient-hover-color: linear-gradient(to right, #1294a2, #086a82);
 
-  --primary-color: rgb(255, 122, 0);
-  --primary-color-hover: rgb(240, 139, 43);
+  --primary-color: #12a1c5;
+  --primary-color-hover: #8aeffa;
+  --slim-bg-color: #cdf1f5;
 }
 
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500&display=swap");
-
-@keyframes animationUpward {
-  0% {
-    transform: scale(0) translateY(0) rotate(0);
-    opacity: 1;
-  }
-  100% {
-    transform: scale(1.5) translateY(-200px) rotate(360deg);
-    opacity: 0;
-  }
-}
-
-@keyframes animationDownward {
-  0% {
-    transform: scale(0) translateY(0) rotate(0);
-    opacity: 1;
-  }
-  100% {
-    transform: scale(1.2) translateY(150px) rotate(360deg);
-    opacity: 0;
-  }
-}
 
 * {
   padding: 0;
@@ -54,7 +25,7 @@ a {
 
 body {
   color: var(--primary-color);
-  background-color: rgb(249, 249, 249);
+  background-color: #e7fdff;
   font-family: "Noto Sans", sans-serif;
   font-size: 1.2rem;
 }
@@ -459,7 +430,7 @@ footer {
   display: block;
   border: none;
   background-image: none;
-  background-color: rgb(255, 122, 0, 0.2);
+  background-color: var(--slim-bg-color);
   color: var(--primary-color);
   width: 100%;
   transition: all 0.5s ease;
@@ -501,7 +472,7 @@ footer {
   margin-top: 30px;
   border-radius: 8px;
   padding: 15px;
-  background-color: rgba(255, 122, 0, 0.2);
+  background-color: var(--slim-bg-color);
   text-align: center;
 }
 
@@ -664,10 +635,8 @@ footer {
 }
 
 .job-listing .job-item .button-row-wrapper .skill {
-  display: flex;
-  align-items: center;
   font-size: 16px;
-  cursor: default;
+  cursor: auto;
   margin-right: 10px;
   padding: 5px 16px;
   font-weight: 600;
@@ -676,9 +645,7 @@ footer {
 }
 
 .job-listing .job-item .button-row-wrapper .btn-apply {
-  display: flex;
   font-size: 16px;
-  align-items: center;
   margin-left: auto;
   padding: 5px 20px;
   width: fit-content;
@@ -712,6 +679,21 @@ footer {
   position: relative;
 }
 
+.companies-container #company-page-header {
+  text-align: center;
+  font-size: 50px;
+  width: 75%;
+  margin: 0 auto 30px;
+}
+
+.companies-container #company-sub-title {
+  text-align: center;
+  font-size: 30px;
+  font-weight: 400;
+  width: 50%;
+  margin: 0 auto 50px;
+}
+
 .company-card {
   background-color: #fff;
   margin: 10px;
@@ -724,9 +706,11 @@ footer {
   flex-wrap: wrap;
   justify-content: flex-start;
   align-items: center;
+  margin-bottom: 10px;
 }
 
 .company-card .company-card-header img {
+  padding: 10px;
   width: 25%;
 }
 
@@ -735,14 +719,216 @@ footer {
   color: #000;
 }
 
-.company-card .company-card-body{
+.company-card .company-card-body {
+  overflow-y: visible;
+  height: 150px;
   padding: 5px 15px;
 }
 
-.company-card .company-card-body p{
+.company-card .company-card-body p {
   font-size: 16px;
   color: #868686;
   text-align: justify;
+}
+
+.company-card .company-card-footer {
+  display: flex;
+  justify-content: flex-end;
+  padding: 25px 15px 10px 15px;
+}
+
+.company-card .company-card-footer .btn-company-detail {
+  color: var(--primary-color);
+  padding: 10px 15px;
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+.company-card .company-card-footer .btn-company-detail:hover {
+  color: #fff;
+}
+
+.company-card .company-card-footer .btn-company-job {
+  padding: 10px 15px;
+  font-size: 16px;
+}
+
+/*Register Page*/
+.register-container {
+  margin: 50px 0px;
+  position: relative;
+}
+
+.register-container .register-form-container {
+  border-radius: 16px;
+  padding: 20px;
+  background-color: #fff;
+  width: 50%;
+  margin: auto;
+}
+
+.register-container .register-form-container #register-form-header {
+  text-align: center;
+  line-height: 50px;
+  font-size: 40px;
+}
+.register-container .register-form-container .name-row {
+  margin: 20px 0 0 0;
+}
+
+.register-container .register-form-container .option-row-wrapper {
+  padding: 10px;
+}
+
+.register-container .register-form-container .option-row-wrapper h4 {
+  font-weight: 400;
+}
+
+.register-container .register-form-container .option-row {
+  margin: 20px 0 0 0;
+}
+
+.register-container .register-form-container .form-group {
+  margin-top: 10px;
+  padding: 10px;
+}
+
+.register-container .register-form-container .form-group label {
+  margin-bottom: 10px;
+  display: block;
+}
+
+.register-container .register-form-container .form-group input {
+  width: 100%;
+  box-sizing: border-box;
+  border: 0.5px solid var(--primary-color);
+  font-size: 20px;
+  padding: 10px;
+  border-radius: 8px;
+  outline: solid 0.5px var(--primary-color-hover);
+}
+
+.register-container .register-form-container .form-group select {
+  width: 100%;
+  box-sizing: border-box;
+  border: 0.5px solid var(--primary-color);
+  font-size: 20px;
+  padding: 10px;
+  border-radius: 8px;
+  outline: solid 0.5px var(--primary-color-hover);
+}
+
+.register-container
+  .register-form-container
+  .option-row
+  .form-group
+  input[type="radio"] {
+  border: 0;
+  outline: 0;
+  width: fit-content;
+  accent-color: var(--primary-color);
+  padding: 0;
+  border-radius: 0;
+}
+
+.register-container .register-form-container .option-row .form-group label {
+  display: inline-block;
+  margin-left: 10px;
+  font-size: 20px;
+}
+
+.btn-group {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn-group .btn-account-register {
+  margin-right: 20px;
+}
+
+.btn-group .reset-info-btn {
+  color: var(--primary-color);
+}
+
+.btn-group .reset-info-btn:hover {
+  color: #fff;
+}
+
+/* Login Page */
+
+.login-container {
+  margin: 100px 0px;
+  position: relative;
+}
+
+.login-container .login-form-container {
+  border-radius: 16px;
+  padding: 20px;
+  background-color: #fff;
+  width: 50%;
+  margin: auto;
+}
+
+.login-container .login-form-container #login-form-header {
+  text-align: center;
+  line-height: 50px;
+  font-size: 40px;
+}
+
+.login-container .login-form-container .form-group {
+  margin-top: 20px;
+  padding: 10px;
+}
+
+.login-container .login-form-container .form-group label {
+  margin-bottom: 10px;
+  display: block;
+}
+
+.login-container .login-form-container .form-group input {
+  width: 100%;
+  box-sizing: border-box;
+  border: 0.5px solid var(--primary-color);
+  font-size: 20px;
+  padding: 10px;
+  border-radius: 8px;
+  outline: solid 0.5px var(--primary-color-hover);
+}
+
+.login-container
+  .login-form-container
+  .option-row
+  .form-group
+  input[type="radio"] {
+  border: 0;
+  outline: 0;
+  width: fit-content;
+  accent-color: var(--primary-color);
+  padding: 0;
+  border-radius: 0;
+}
+
+.login-container .login-form-container .option-row .form-group {
+  margin: 0;
+}
+
+.login-container .login-form-container .option-row .form-group label {
+  display: inline-block;
+  margin-left: 10px;
+  font-size: 20px;
+}
+
+.login-container .login-form-container .option-row-wrapper {
+  padding: 10px;
+}
+
+.login-container .login-form-container .option-row-wrapper h4 {
+  font-weight: 400;
+}
+
+.login-container .login-form-container .option-row {
+  margin: 20px 0 0 0;
 }
 
 /* Footer section */
