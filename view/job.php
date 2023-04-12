@@ -8,7 +8,7 @@
               <img class="user-avatar" src="./images/person.png" alt="" />
               <h3 class="user-name">Guess</h3>
               <p class="user-profession">Not Sign In</p>
-              <a href="" class="btn btn-fill btn-edit-account">Sign In</a>
+              <a href="?page=login" class="btn btn-fill btn-edit-account">Sign In</a>
             </div>
           </div>
           <div class="col-6">
@@ -31,7 +31,7 @@
                 <div class="job-header">
                   <img src="./images/google.png" alt="" />
                   <div class="job-company">
-                    <h2 class="job-name">Senior C# Developer</h2>
+                    <a href="?job_details=2" class="job-name">Senior C# Developer</a>
                     <h3>Google Inc</h3>
                   </div>
                   <button class="btn save-icon">

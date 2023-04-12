@@ -4,10 +4,10 @@
       <img src="./images/google.png" alt="" />
     </div>
     <div class="company-name">
-      <h1>Google Inc</h1>
+      <h1>Google LLC</h1>
       <div class="employee-site">
         <p>5000 Employee</p>
-        <a href="www.google.com">Website</a>
+        <a href="https://google.com">Website</a>
       </div>
     </div>
     <button class="btn btn-fill btn-follow-company">Follow Company</button>
@@ -64,8 +64,104 @@
             <span class="fa fa-star checked"></span>
             <span class="fa fa-star checked"></span>
             <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
             <span class="fa fa-star"></span>
-            <span class="fa fa-star"></span>
+          </div>
+          <button class = "btn btn-outline btn-review">Add Review</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class = "company-vacancies-container">
+    <h3>Company Job Vacancies</h3>
+    <div class = "company-job-listing">
+      <div class = "company-job-item">
+        <div class = "job-item-header">
+          <img src="./images/google.png" alt="Google Image">
+          <div class = "company-job-title">
+            <h4>Google LLC</h4>
+            <p>Senior Android Developer</p>
+          </div>
+          <button class = "btn btn-save-job">
+            <i class="fa-regular fa-bookmark"></i>
+          </button>
+        </div>
+        <div class = "company-job-description">
+          <p>
+            As a Senior Android Developer at Google LLC, you'll build beautiful and user-friendly Android apps
+            for our customers. Your code will be written in a timely and scalable way all while ensuring 
+            strong optimization. You'll also unit-test your code for robustness including edge cases, usability, 
+            and general reliability.
+          </p>
+        </div>
+        <div class = "skill-requirements">
+          <div class = "btn job-skill">Java</div>
+          <div class = "btn job-skill">Kotlin</div>
+          <div class = "btn job-skill">Flutter</div>
+          <div class = "btn job-salary">120K USD/Year</div>
+          <div class = "btn-utility-group">
+            <button type = "button" class = "btn btn-job-details">View Details</button>
+            <button type = "button" class = "btn btn-job-apply">Apply</button>
+          </div>
+        </div>
+      </div>
+      <div class = "company-job-item">
+        <div class = "job-item-header">
+          <img src="./images/google.png" alt="Google Image">
+          <div class = "company-job-title">
+            <h4>Google LLC</h4>
+            <p>Senior Android Developer</p>
+          </div>
+          <button class = "btn btn-save-job">
+            <i class="fa-regular fa-bookmark"></i>
+          </button>
+        </div>
+        <div class = "company-job-description">
+          <p>
+            As a Senior Android Developer at Google LLC, you'll build beautiful and user-friendly Android apps
+            for our customers. Your code will be written in a timely and scalable way all while ensuring 
+            strong optimization. You'll also unit-test your code for robustness including edge cases, usability, 
+            and general reliability.
+          </p>
+        </div>
+        <div class = "skill-requirements">
+          <div class = "btn job-skill">Java</div>
+          <div class = "btn job-skill">Kotlin</div>
+          <div class = "btn job-skill">Flutter</div>
+          <div class = "btn job-salary">120K USD/Year</div>
+          <div class = "btn-utility-group">
+            <button type = "button" class = "btn btn-job-details">View Details</button>
+            <button type = "button" class = "btn btn-job-apply">Apply</button>
+          </div>
+        </div>
+      </div>
+      <div class = "company-job-item">
+        <div class = "job-item-header">
+          <img src="./images/google.png" alt="Google Image">
+          <div class = "company-job-title">
+            <h4>Google LLC</h4>
+            <p>Senior Android Developer</p>
+          </div>
+          <button class = "btn btn-save-job">
+            <i class="fa-regular fa-bookmark"></i>
+          </button>
+        </div>
+        <div class = "company-job-description">
+          <p>
+            As a Senior Android Developer at Google LLC, you'll build beautiful and user-friendly Android apps
+            for our customers. Your code will be written in a timely and scalable way all while ensuring 
+            strong optimization. You'll also unit-test your code for robustness including edge cases, usability, 
+            and general reliability.
+          </p>
+        </div>
+        <div class = "skill-requirements">
+          <div class = "btn job-skill">Java</div>
+          <div class = "btn job-skill">Kotlin</div>
+          <div class = "btn job-skill">Flutter</div>
+          <div class = "btn job-salary">120K USD/Year</div>
+          <div class = "btn-utility-group">
+            <button type = "button" class = "btn btn-job-details">View Details</button>
+            <button type = "button" class = "btn btn-job-apply">Apply</button>
           </div>
         </div>
       </div>

@@ -10,10 +10,7 @@
               </div>
               <div class="company-card-body">
                 <p>
-                  An American multinational technology company focusing on
-                  online advertising, search engine technology, cloud computing,
-                  computer software, quantum computing, e-commerce, artificial
-                  intelligence, and consumer electronics.
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime odio, sequi minima modi nihil ipsam cum illum numquam doloremque, ea sit officia repudiandae? Necessitatibus, doloribus. Voluptatibus animi aspernatur totam ea. Lorem
                 </p>
               </div>
               <div class="company-card-footer">
@@ -32,9 +29,8 @@
               </div>
               <div class="company-card-body">
                 <p>
-                  Meta sells advertising placements for marketers to reach people based on various factors including age, 
-                  gender, location, interests, and behavior. The company has business presence across the Americas, Europe, 
-                  the Middle East, Africa, and Asia-Pacific.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime odio, sequi minima modi nihil ipsam cum illum numquam doloremque, ea sit officia repudiandae? Necessitatibus, doloribus. Voluptatibus animi aspernatur totam ea. Lorem
+
                 </p>
               </div>
               <div class="company-card-footer">
@@ -53,9 +49,8 @@
               </div>
               <div class="company-card-body">
                 <p>
-                Twitter, Inc. provides online social networking and microblogging service. 
-                The Company offers users the ability to follow other users activity, 
-                read, and post tweets. Twitter serves customers worldwide.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime odio, sequi minima modi nihil ipsam cum illum numquam doloremque, ea sit officia repudiandae? Necessitatibus, doloribus. Voluptatibus animi aspernatur totam ea. Lorem
+      
                 </p>
               </div>
               <div class="company-card-footer">

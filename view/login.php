@@ -10,6 +10,7 @@
             name="email"
             id="email-field"
             placeholder="Email"
+            required
           />
         </div>
         <div class="form-group">
@@ -19,6 +20,7 @@
             name="pwd"
             id="password-field"
             placeholder="Password"
+            required
           />
         </div>
         <div class = "option-row-wrapper">
