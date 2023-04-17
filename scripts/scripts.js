@@ -39,3 +39,11 @@ function changeMode() {
       "Date Created";
   }
 }
+
+function changePanel(index) {
+  let allPanels = document.querySelectorAll(".panel");
+  allPanels.forEach((panel) => {
+    panel.style.display = "none";
+  });
+  allPanels[index].style.display = "block";
+}
