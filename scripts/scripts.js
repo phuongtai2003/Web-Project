@@ -47,3 +47,17 @@ function changePanel(index) {
   });
   allPanels[index].style.display = "block";
 }
+
+function openDeleteModal() {
+  var deleteModal = document.querySelector("#delete-job-modal");
+  deleteModal.style.display = "block";
+  var span = document.getElementsByClassName("close")[0];
+  span.onclick = function () {
+    deleteModal.style.display = "none";
+  };
+  window.onclick = function (event) {
+    if (event.target == deleteModal) {
+      deleteModal.style.display = "none";
+    }
+  };
+}

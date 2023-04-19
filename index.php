@@ -2,6 +2,7 @@
     session_start();
     $page_name = "Home";
     $page_url = "./controller/home.php";
+    $role = "admin";
     if(isset($_GET['page']) && isset($_GET['page'])!=""){
         $page_name = ucfirst($_GET['page']);
         $page_url = "./controller/".$_GET['page'].".php";

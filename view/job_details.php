@@ -157,35 +157,35 @@
                             <img src="./images/google.png" alt="">
                             <div>
                                 <h4>Google INC</h4>
-                                <a href="?job-details=2">Senior Angular Developer</a>
+                                <a href="?job_details=2">Senior Angular Developer</a>
                             </div>
                         </div>
                         <div class = "job-recommendation-card">
                             <img src="./images/google.png" alt="">
                             <div>
                                 <h4>Google INC</h4>
-                                <a href="?job-details=3">Senior Flutter Developer</a>
+                                <a href="?job_details=3">Senior Flutter Developer</a>
                             </div>
                         </div>
                         <div class = "job-recommendation-card">
                             <img src="./images/google.png" alt="">
                             <div>
                                 <h4>Google INC</h4>
-                                <a href="?job-details=4">Senior Kotlin Developer</a>
+                                <a href="?job_details=4">Senior Kotlin Developer</a>
                             </div>
                         </div>
                         <div class = "job-recommendation-card">
                             <img src="./images/google.png" alt="">
                             <div>
                                 <h4>Google INC</h4>
-                                <a href="?job-details=5">Junior Kotlin Developer</a>
+                                <a href="?job_details=5">Junior Kotlin Developer</a>
                             </div>
                         </div>
                         <div class = "job-recommendation-card">
                             <img src="./images/google.png" alt="">
                             <div>
                                 <h4>Google INC</h4>
-                                <a href="?job-details=6">Junior PHP Developer</a>
+                                <a href="?job_details=6">Junior PHP Developer</a>
                             </div>
                         </div>
                     </div>
