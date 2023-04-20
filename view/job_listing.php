@@ -111,8 +111,8 @@
             <p>Are you sure you want to delete the <strong>Senior Kotlin Developer</strong> job ?</p>
         </div>
         <div class="modal-footer">
-            <button class = "btn btn-fill">Yes</button>
-            <button class= "btn btn-outline">No</button>
+            <button class = "btn btn-fill btn-confirm">Yes</button>
+            <button class= "btn btn-outline btn-close-modal">No</button>
         </div>
     </div>
 </div>

@@ -2166,6 +2166,87 @@ footer {
   align-items: center;
 }
 
+/*Applied Job Page*/
+.bookmark-job-container {
+  margin: 100px 0;
+}
+
+.bookmark-job-container > h4 {
+  font-size: 25px;
+  font-weight: 600;
+}
+
+.bookmark-job-container .bookmark-job-listing {
+  margin-top: 50px;
+  overflow-y: scroll;
+  padding: 20px;
+  height: 75vh;
+}
+
+.bookmark-job-container .bookmark-job-listing .bookmark-job-item {
+  padding: 20px 30px;
+  border-radius: 8px;
+  border: 1px solid var(--primary-color);
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+  align-items: center;
+}
+
+.bookmark-job-container .bookmark-job-listing .bookmark-job-item img {
+  width: 10%;
+  height: 10%;
+}
+.bookmark-job-container
+  .bookmark-job-listing
+  .bookmark-job-item
+  .bookmark-job-header {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.bookmark-job-container
+  .bookmark-job-listing
+  .bookmark-job-item
+  .bookmark-job-header
+  p {
+  font-size: 18px;
+}
+
+.bookmark-job-container
+  .bookmark-job-listing
+  .bookmark-job-item
+  .bookmark-job-header
+  strong {
+  font-size: 20px;
+}
+
+.bookmark-job-container
+  .bookmark-job-listing
+  .bookmark-job-item
+  .bookmark-job-header
+  h3 {
+  margin-top: 10px;
+  font-size: 30px;
+}
+
+.bookmark-job-container .bookmark-job-listing .bookmark-job-item .button-group {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  margin-left: auto;
+}
+
+.bookmark-job-container
+  .bookmark-job-listing
+  .bookmark-job-item
+  .button-group
+  * {
+  text-align: center;
+}
+
 /* Modal*/
 .modal {
   display: none;

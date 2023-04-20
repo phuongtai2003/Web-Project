@@ -42,7 +42,7 @@
                 <li class="navbar-li <?=$page_name=="Home" ? "active-link" : ""?>" ><a href="/">Home</a></li>
                 <li class="navbar-li <?=$page_name=="Job" ? "active-link" : ""?>" ><a href="?page=job">Jobs</a></li>
                 <li class="navbar-li <?=$page_name=="Companies" ? "active-link" : ""?>"><a href="?page=companies">Companies</a></li>
-                <li class="navbar-li <?=$page_name=="Blog" ? "active-link" : ""?>"><a href="#">Blog</a></li>
+                <li class="navbar-li <?=$page_name=="Bookmark_job" ? "active-link" : ""?>"><a href="?page=bookmark_job">Bookmark Jobs</a></li>
                 </ul>
             <?php
           }

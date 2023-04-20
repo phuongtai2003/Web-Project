@@ -52,12 +52,42 @@ function openDeleteModal() {
   var deleteModal = document.querySelector("#delete-job-modal");
   deleteModal.style.display = "block";
   var span = document.getElementsByClassName("close")[0];
+  var confirmBtn = document.querySelector(".btn-confirm");
+  var closeModalBtn = document.querySelector(".btn-close-modal");
   span.onclick = function () {
+    deleteModal.style.display = "none";
+  };
+  confirmBtn.onclick = function () {
+    deleteModal.style.display = "none";
+  };
+  closeModalBtn.onclick = function () {
     deleteModal.style.display = "none";
   };
   window.onclick = function (event) {
     if (event.target == deleteModal) {
       deleteModal.style.display = "none";
+    }
+  };
+}
+
+function openRemoveBookmarkModal() {
+  var removeModal = document.querySelector("#remove-bookmark-modal");
+  removeModal.style.display = "block";
+  var span = document.getElementsByClassName("close")[0];
+  var confirmBtn = document.querySelector(".btn-confirm");
+  var closeModalBtn = document.querySelector(".btn-close-modal");
+  span.onclick = function () {
+    removeModal.style.display = "none";
+  };
+  confirmBtn.onclick = function () {
+    removeModal.style.display = "none";
+  };
+  closeModalBtn.onclick = function () {
+    removeModal.style.display = "none";
+  };
+  window.onclick = function (event) {
+    if (event.target == removeModal) {
+      removeModal.style.display = "none";
     }
   };
 }
