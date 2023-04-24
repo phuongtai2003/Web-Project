@@ -1,10 +1,20 @@
 <div class="container register-container">
+  <img class = "loading-image" src = "./images/loading-gif.gif">
   <div class="row">
     <div class="register-form-container">
+      <?php
+        if(!empty($error)){ 
+        ?>
+          <div class = "alert">
+            <?=$error?>
+          </div>
+        <?php
+        }
+      ?>
       <form method = "post">
         <h3 id="register-form-header">What are you waiting for?<br/>Join us now!</h3>
         <div class="row name-row">
-        <div style = "display:none" class="form-group col-12 company-group">
+          <div style = "display:none" class="form-group col-12 company-group">
             <label for="company-field">Company Name</label>
             <input
               type="text"
@@ -40,6 +50,10 @@
             id="email-field"
             placeholder="Email"
           />
+        </div>
+        <div style = "display:none;" class = "form-group company-description-group">
+          <label for="description-field">Company Description</label>
+          <textarea rows = "10" name = "description" id = "description-field" placeholder = "Description"></textarea>
         </div>
         <div class="form-group">
           <label for="birth-date-field">Birth Date</label>
@@ -393,6 +407,12 @@
             <option value="Yên Bái">Yên Bái</option>
           </select>
         </div>
+        <div style = "display:none;" class="form-group company-type-group">
+          <label for="company-type-field">Company Type</label>
+          <select id = "company-type-field" name = "company-type">
+
+          </select>
+        </div>
         <div class = "option-row-wrapper">
           <h4>Account Type</h4>
           <div class="row option-row">
@@ -419,7 +439,7 @@
             </div>
             <div class = "btn-group">
               <input type = "hidden" name = "action" value = "register" id = "action-input-field">
-              <button type = "submit" class = "btn btn-fill btn-account-register">Submit</button>
+              <button type = "button" class = "btn btn-fill btn-account-register">Submit</button>
               <button type = "reset" class = "btn btn-outline reset-info-btn" >Reset Information</button>
             </div>
           </div>
@@ -428,3 +448,126 @@
     </div>
   </div>
 </div>
+<script>
+  $.ajax({
+    type: "get",
+    url: "http://localhost/models/api/companyType/companyType.php",
+    contentType: "application/json",
+    success: function (response) {
+      let data = response['data'];
+      let allOptions = '';
+      data.forEach(dataElement => {
+        allOptions += `<option value="${dataElement['CompanyTypeId']}">${dataElement['CompanyTypeName']}</option>`
+      });
+      $("#company-type-field").html(allOptions);
+    }
+  });
+  function displayMessage(message){
+    let messageAlert = $(".alert");
+    if(messageAlert.length === 0){
+      $(".register-container").append(`<div class = "alert">${message}</div>`);
+    }
+    else{
+      messageAlert.html(message);
+    }
+  }
+  $(".btn-account-register").on("click", function(){
+    let typeOfAccount = $("input[name='type']:checked").val();
+    if(typeOfAccount === "seeker"){
+      let firstname = $("#firstname-field").val().trim();
+      let lastname = $("#lastname-field").val().trim();
+      let email = $("#email-field").val().trim();
+      let birthdate = $("#birth-date-field").val();
+      let password = $("#password-field").val().trim();
+      let confirmPassword = $("#confirm-password-field").val().trim();
+      let nationality = $("#country-field").val();
+      let province = $("#province-field").val();
+      if(!firstname || !lastname || !email || !birthdate || !password || !confirmPassword || !nationality || !province){
+        displayMessage("Please enter all of the fields");
+      }
+      else if(firstname.length === 0 || lastname.length === 0 || email.length === 0 || password.length === 0 || confirmPassword.length === 0 || nationality.length === 0 || province.length === 0){
+        displayMessage("Some fields are left empty");
+      }
+      else if(password !== confirmPassword){
+        displayMessage("Passwords are not the same");
+      }
+      else{
+        $.ajax({
+          type: "post",
+          url: "http://localhost/models/api/register/seekerRegister.php",
+          data: JSON.stringify({
+            firstname: firstname,
+            lastname: lastname,
+            email: email,
+            password: password,
+            birth_date:birthdate,
+            nationality: nationality,
+            province: province,
+          }),
+          contentType: "application/json",
+          beforeSend: function(){
+            $(".loading-image").show();
+          },
+          success: function (res) {
+            displayMessage(res['msg']);
+          },
+          error: function(xhr, status, err){
+            displayMessage(xhr.responseJSON['error']);
+          },
+          complete: function(){
+            $(".loading-image").hide();
+          },
+        });
+      }
+    }
+    else if(typeOfAccount === "company"){
+      let companyName = $("#company-field").val().trim();
+      let email = $("#email-field").val().trim();
+      let description = $("#description-field").val();
+      let dateCreated = $("#birth-date-field").val();
+      let password = $("#password-field").val().trim();
+      let confirmPassword = $("#confirm-password-field").val().trim();
+      let country = $("#country-field").val();
+      let province = $("#province-field").val();
+      let companyType = $("#company-type-field").val();
+      if(!companyName || !email || !description || !dateCreated || !password || !confirmPassword || !country || !province || !companyType){
+        displayMessage("Please enter all of the fields");
+      }
+      else if(companyName.length === 0 || email.length === 0 || description.length === 0 || dateCreated.length === 0 || password.length === 0 || confirmPassword.length === 0 || country.length === 0 || province.length === 0){
+        displayMessage("Some fields are left empty");
+      }
+      else if(password !== confirmPassword){
+        displayMessage("Passwords are not the same");
+      }
+      else{
+        $.ajax({
+          type: "post",
+          url: "http://localhost/models/api/register/companyRegister.php",
+          data: JSON.stringify({
+            companyName:companyName,
+            email:email,
+            description:description,
+            dateCreated:dateCreated,
+            password: password,
+            country: country,
+            province:province,
+            companyType:companyType,
+          }),
+          contentType: "application/json",
+          beforeSend: function(){
+            $(".loading-image").show();
+          },
+          success: function (res) {
+            displayMessage(res['msg']);
+          },
+          error:function(xhr, status, err){
+            displayMessage(xhr.responseJSON['error']);
+          },
+          complete: function(){
+            $(".loading-image").hide();
+          }
+        });
+      }
+    }
+  });
+</script>

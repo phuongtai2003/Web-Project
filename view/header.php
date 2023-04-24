@@ -28,6 +28,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
   </head>
   <body>
     <div class="navbar">
@@ -35,20 +36,8 @@
         <a href = "/"><img src="./images/company.png" alt="" /></a>
       </div>
       <div class="nav-link">
-        <?php
-          if($role == "user"){
-            ?>
-              <ul class="navbar-list">
-                <li class="navbar-li <?=$page_name=="Home" ? "active-link" : ""?>" ><a href="/">Home</a></li>
-                <li class="navbar-li <?=$page_name=="Job" ? "active-link" : ""?>" ><a href="?page=job">Jobs</a></li>
-                <li class="navbar-li <?=$page_name=="Companies" ? "active-link" : ""?>"><a href="?page=companies">Companies</a></li>
-                <li class="navbar-li <?=$page_name=="Bookmark_job" ? "active-link" : ""?>"><a href="?page=bookmark_job">Bookmark Jobs</a></li>
-                </ul>
-            <?php
-          }
-        ?>
-        <?php
-          if($role == "admin"){
+      <?php
+          if($role == "company"){
             ?>
               <ul class="navbar-list">
                 <li class="navbar-li <?=$page_name=="Home" ? "active-link" : ""?>" ><a href="/">Home</a></li>
@@ -58,11 +47,34 @@
               </ul>
             <?php
           }
+          else{
+            ?>
+              <ul class="navbar-list">
+                <li class="navbar-li <?=$page_name=="Home" ? "active-link" : ""?>" ><a href="/">Home</a></li>
+                <li class="navbar-li <?=$page_name=="Job" ? "active-link" : ""?>" ><a href="?page=job">Jobs</a></li>
+                <li class="navbar-li <?=$page_name=="Companies" ? "active-link" : ""?>"><a href="?page=companies">Companies</a></li>
+                <li class="navbar-li <?=$page_name=="Bookmark_job" ? "active-link" : ""?>"><a href="?page=bookmark_job">Bookmark Jobs</a></li>
+              </ul>
+            <?php
+          }
         ?>
+        
       </div>
       <div class="nav-button">
-        <a href="?page=register" class="btn btn-outline btn-register">Register</a>
-        <a href="?page=login" class="btn btn-fill btn-login">Login</a>
+        <?php 
+          if(empty($role)){
+            ?>
+              <a href="?page=register" class="btn btn-outline btn-register">Register</a>
+              <a href="?page=login" class="btn btn-fill btn-login">Login</a>
+            <?php
+          }
+          else{
+            ?>
+              <a href  ="?page=user_panel" class = "btn btn-outline"><?=$_SESSION['name']?></a>
+            <?php
+          }
+        ?>
+        
       </div>
       <div class="nav-collapse"><span class="navbar-bar"></span></div>
     </div>

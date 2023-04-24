@@ -1,5 +1,5 @@
 <?php
-    if($role == "admin"){
+    if($role == "company"){
         include_once("./view/company_home.php");
     }
     else{

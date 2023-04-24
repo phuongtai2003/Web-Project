@@ -388,7 +388,7 @@
                 </div>
                 <div style = "display:none;" class = "panel logout-panel">
                     <h2>Do you want to log out?</h2>
-                    <a href="" class = "btn btn-fill logout-button">Yes</a>
+                    <a href="?page=logout" class = "btn btn-fill logout-button">Yes</a>
                 </div>
             </div>
         </div>

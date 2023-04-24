@@ -13,30 +13,48 @@ function changeMode() {
     document.querySelector("label[for='country-field']").innerHTML =
       "Nationality";
     document.querySelector(".company-group").style.display = "none";
+    document.querySelector(".company-type-group").style.display = "none";
+    document.querySelector(".company-description-group").style.display = "none";
+
     let nameGroup = document.querySelectorAll(".name-group");
+
     for (let i = 0; i < nameGroup.length; i++) {
       nameGroup[i].style.display = "block";
     }
     document.querySelector("#company-field").disabled = true;
     document.querySelector("#company-field").value = "";
+
     document.querySelector("#firstname-field").disabled = false;
     document.querySelector("#lastname-field").disabled = false;
+
     document.querySelector("label[for='birth-date-field']").innerHTML =
       "Birth Date";
+
+    document.querySelector("#description-field").disabled = true;
+    document.querySelector("#description-field").value = "";
   } else {
     document.querySelector("label[for='country-field']").innerHTML = "Country";
+
     document.querySelector(".company-group").style.display = "block";
+    document.querySelector(".company-type-group").style.display = "block";
+    document.querySelector(".company-description-group").style.display = "block";
+
     let nameGroup = document.querySelectorAll(".name-group");
     for (let i = 0; i < nameGroup.length; i++) {
       nameGroup[i].style.display = "none";
     }
+
     document.querySelector("#company-field").disabled = false;
+
     document.querySelector("#firstname-field").disabled = true;
     document.querySelector("#firstname-field").value = "";
     document.querySelector("#lastname-field").disabled = true;
     document.querySelector("#lastname-field").value = "";
+
     document.querySelector("label[for='birth-date-field']").innerHTML =
       "Date Created";
+
+    document.querySelector("#description-field").disabled = false;
   }
 }
 
