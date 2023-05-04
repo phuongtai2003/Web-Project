@@ -66,6 +66,48 @@
             }
             return array("code" => 0, "msg" => "Login successfully", "data" => $data);
         }
+        public function upload_image($id, $image_url){
+            $sql = "update company set CompanyImage = ? where CompanyId = ?";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bind_param("si", $image_url, $id);
+            if(!$stmt->execute()){
+                return array("code" => 1, "error" => "Something has gone wrong");
+            }
+            return array("code" => 0, "msg" => "Image upload successfully");
+        }
+        public function get_company_data($id){
+            $sql = "select company.*, companytype.* from company, companytype where company.CompanyTypeId = companytype.CompanyTypeId and company.CompanyId = ?";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bind_param("i", $id);
+            if(!$stmt->execute()){
+                return array("code" => 1, "error" => "Something went wrong");
+            }
+            $res = $stmt->get_result();
+            if($res->num_rows == 0){
+                return array("code" => 2, "error" => "User does not exist");
+            }
+            $data = $res->fetch_assoc();
+            return array("code" => 0, "msg" => "Retrieve Company Data successfully", "data" => $data);
+        }
+        public function update_company_data($company_id, $company_name, $company_desc, $company_email, $company_type, $date_created, $country, $province){
+            $sql = "select * from company where CompanyId = ?";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bind_param("i", $company_id);
+            if(!$stmt->execute()){
+                return array("code" => 1, "error" => "Something went wrong");
+            }
+            $res = $stmt->get_result();
+            if($res->num_rows != 1){
+                return array("code" => 2, "error" => "Company does not exist");
+            }
+            $sql = "update Company set CompanyName = ?, CompanyEmail = ?, CompanyDescription = ?, DateCreated = ?, CompanyCountry = ?, CompanyProvince = ?, CompanyTypeId = ? where CompanyId = ?";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bind_param("ssssssii", $company_name, $company_email, $company_desc, $date_created, $country, $province, $company_type, $company_id);
+            if(!$stmt->execute()){
+                return array("code" => 1, "error" => "Something went wrong");
+            }
+            return array("code" => 0, "msg" => "Update company data successfully");
+        }
 
         private function email_exist($email){
             $sql = "select * from seeker where SeekerEmail = ?";

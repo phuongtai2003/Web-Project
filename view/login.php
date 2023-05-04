@@ -2,22 +2,6 @@
   <img class = "loading-image" src = "./images/loading-gif.gif">
   <div class="row">
     <div class="login-form-container">
-      <?php 
-        if(!empty($error)){
-          ?>
-            <div class = "alert">
-              <?=$error?>
-            </div>
-          <?php
-        }
-        else if(!empty($msg)){
-          ?>
-            <div class = "alert">
-              <?=$msg?>
-            </div>
-          <?php
-        }
-      ?>
     <form method = "post">
         <h3 id="login-form-header">Login now!</h3>
         <div class="form-group">
@@ -64,7 +48,7 @@
             </div>
             <div class = "btn-group">
                 <input type = "hidden" name = "action" value = "login" id = "action-input-field">
-                <button type = "button" class = "btn btn-fill btn-account-login">Login</button>
+                <button type = "submit" class = "btn btn-fill btn-account-login">Login</button>
                 <button type = "reset" class = "btn btn-outline reset-info-btn" >Reset Information</button>
             </div>
           </div>
@@ -72,73 +56,13 @@
       </form>
     </div>
   </div>
+  <?php
+    if(!empty($error)){
+      ?>
+        <div class = "alert"><?=$error?></div>
+      <?php
+    }
+  ?>
 </div>
 <script>
-  function displayMessage(message){
-    let messageAlert = $(".alert");
-    if(messageAlert.length === 0){
-      $(".login-container").append(`<div class = "alert">${message}</div>`);
-    }
-    else{
-      messageAlert.html(message);
-    }
-  }
-
-  $(".btn-account-login").on("click", function(){
-    let typeOfAccount = $("input[name='type']:checked").val();
-    let email = $("#email-field").val().trim();
-    let password = $("#password-field").val().trim();
-    if(!email || !password){
-      displayMessage("Please enter all of the fields");
-    }
-    else{
-      if(typeOfAccount === "seeker"){
-        $.ajax({
-          type: "post",
-          url: "http://localhost/models/api/login/seekerLogin.php",
-          data: JSON.stringify({
-            email: email,
-            password: password,
-          }),
-          contentType: "application/json",
-          success: function (res) {
-            location.reload();
-          },
-          error: function(xhr, status, err){
-            displayMessage(xhr.responseJSON['error']);
-          },
-          beforeSend: function(){
-            $(".loading-image").show();
-          },
-          complete: function(){
-            $(".loading-image").hide();
-          },
-        });
-      }
-      else if(typeOfAccount === "company"){
-        $.ajax({
-          type: "post",
-          url: "http://localhost/models/api/login/companyLogin.php",
-          data: JSON.stringify({
-            email: email,
-            password: password,
-          }),
-          contentType: "application/json",
-          success: function (res) {
-            location.reload();
-          },
-          error: function(xhr, status, err){
-            displayMessage(xhr.responseJSON['error']);
-          },
-          beforeSend: function(){
-            $(".loading-image").show();
-          },
-          complete: function(){
-            $(".loading-image").hide();
-          },
-        });
-      }
-    }
-    
-  });
 </script>

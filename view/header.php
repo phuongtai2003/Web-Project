@@ -1,6 +1,7 @@
 <?php 
     $comp_id = $_GET['comp_details'] ?? '';
     $job_id = $_GET['job_details'] ?? '';
+    $candidates = $_GET['candidate'] ?? '';
     if(!empty($comp_id)){
       $_SESSION['comp_id'] = $comp_id;
       header("Location: ?page=company_details");
@@ -8,6 +9,10 @@
     if(!empty($job_id)){
       $_SESSION['job_id'] = $job_id;
       header("Location: ?page=job_details");
+    }
+    if(!empty($candidates)){
+      $_SESSION['candidates'] = $candidates;
+      header("Location: ?page=candidates");
     }
 ?>
 <!DOCTYPE html>

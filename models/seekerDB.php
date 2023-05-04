@@ -64,6 +64,41 @@
             }
             return array("code" => 0, "msg" => "Login successfully", "data" => $data);
         }
+        public function upload_cv($cv_url, $id){
+            $sql = "update seeker set SeekerCV = ? where SeekerId = ?";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bind_param("si",$cv_url, $id);
+            if(!$stmt->execute()){
+                return array("code" => 1, "error" => "Something went wrong");
+            }
+            return array("code" => 0, "msg" => "Upload CV Successfully");
+        }
+        public function get_seeker_data($id){
+            $sql = "select * from seeker where SeekerId = ?";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bind_param("i", $id);
+            if(!$stmt->execute()){
+                return array("code" => 1, "error" => "Something went wrong");
+            }
+            $res = $stmt->get_result();
+            if($res->num_rows == 0){
+                return array("code" => 2, "error" => "User does not exist");
+            }
+            $data = $res->fetch_assoc();
+            return array("code" => 0, "msg" => "Retrieve Seeker Data successfully", "data" => $data);
+        }
+        public function update_seeker($id, $firstname, $lastname, $email, $birth_date, $nationality, $province){
+            $sql = "update seeker set SeekerFirstName = ?, SeekerLastName = ?, SeekerEmail = ?, SeekerBirthDate = ?, SeekerNationality = ?, SeekerProvince = ? where SeekerId = ?";
+            $stmt=$this->conn->prepare($sql);
+            $stmt->bind_param("ssssssi", $firstname, $lastname, $email, $birth_date, $nationality, $province, $id);
+            if(!$stmt->execute()){
+                return array("code"=> 1, "error" => "Something went wrong");
+            }
+            if($stmt->affected_rows != 1){
+                return array("code"=> 2, "error" => "Seeker does not exist");
+            }
+            return array("code" => 0, "msg" => "Update seeker information successfully");
+        }
         private function email_exist($email){
             $sql = "select * from seeker where SeekerEmail = ?";
             $stmt = $this->conn->prepare($sql);

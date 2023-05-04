@@ -34,12 +34,7 @@
     }
     else{
         $data = $res['data'];
-        session_start();
-        $_SESSION['accountType'] = 'company';
-        $_SESSION['email'] = $data['CompanyEmail'];
-        $_SESSION['name'] = $data['CompanyName'];
-        $_SESSION['userId']= $data['CompanyId'];
         http_response_code(200);
-        die(json_encode(array("status"=>true, "msg" => $res['msg'])));
+        die(json_encode(array("status"=>true, "msg" => $res['msg'], "data" => $data)));
     }
 ?>

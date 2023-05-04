@@ -1,22 +1,79 @@
 <div class = "container job-details-container">
     <div class = "job-details-header">
         <div class = "img-container">
-            <img src="./images/google.png" alt="Company Image">
+            <img src="<?=$job['CompanyImage']?>" alt="<?=$job['CompanyName']?> Image">
         </div>
         <div class = "company-job-title">
-            <h3>Senior C# Developer</h3>
-            <h5>Google LLC</h5>
-            <p>Expiry Date: 30/04/2023</p>
+            <h3><?=$job['JobName']?></h3>
+            <h5><?=$job['CompanyName']?></h5>
+            <p>Expiry Date: <?=date("d/m/Y",strtotime($job['JobExpiryDate']))?></p>
         </div>
         <div class = "button-group">
-            <button class = "btn btn-fill button-apply-now">
-                Apply Now
-            </button>
-            <button class = "btn btn-outline btn-bookmark-job">
-                Bookmark Job
-            </button>
+            <?php
+                if($role === 'seeker' && !$seeker_application_data){
+                    ?>
+                        <form style = "width: 100%" method = "post">
+                            <input type = "hidden" name = "action" value = "apply-job">
+                            <input type = "hidden" name = "job" value = "<?=$job['JobId']?>">
+                            <button style = "width: 100%" type = "submit" class = "btn btn-fill button-apply-now">
+                                Apply Now
+                            </button>
+                        </form>
+                    <?php
+                }
+                else if ($role === 'seeker' && $seeker_application_data){
+                    ?>
+                        <form style = "width: 100%" method = "post">
+                            <input type = "hidden" name = "action" value = "unapply-job">
+                            <input type = "hidden" name = "job" value = "<?=$job['JobId']?>">
+                            <button style = "width: 100%" type = "submit" class = "btn btn-fill button-apply-now">
+                                Unapply
+                            </button>
+                        </form>
+                    <?php
+                }
+                if($role === 'seeker' && !$seeker_bookmark_data){
+                    ?>
+                        <form method = "post">
+                            <input type = "hidden" name = "action" value = "bookmark-job">
+                            <input type = "hidden" name = "job" value = "<?=$job['JobId']?>">
+                            <button class = "btn btn-outline btn-bookmark-job">
+                                Bookmark Job
+                            </button>
+                        </form>
+                    <?php
+                }
+                else if($role === 'seeker' && $seeker_bookmark_data){
+                    ?>
+                        <form method = "post">
+                            <input type = "hidden" name = "action" value = "remove-bookmark">
+                            <input type = "hidden" name = "job" value = "<?=$job['JobId']?>">
+                            <button class = "btn btn-outline btn-bookmark-job">
+                                Remove Bookmark
+                            </button>
+                        </form>
+                    <?php
+                }
+                else if($role === ''){
+                    ?>
+                        <a href = "?page=login" class =  "btn btn-fill">Login Now</a>
+                    <?php
+                }
+            ?>
         </div>
     </div>
+    <?php
+        if(!empty($error)){
+            ?>
+                <div class = "alert" ><?=$error?></div>
+            <?php
+        }
+        else if(!empty($msg)){
+            ?>
+                <div class = "alert" ><?=$msg?></div>
+            <?php
+        }
+    ?>
     <div class = "job-details-body">
         <div class = "details-body-header">
             <h2>Job Details</h2>
@@ -30,43 +87,43 @@
                             <div class = "box-item">
                                 <img src="./images/salary.png" alt="">
                                 <div>
-                                    <h3>Wage</h3>
-                                    <p>Up to 120K/Year</p>
+                                    <h3>Salary</h3>
+                                    <p><?=number_format($job['JobMinSalary'],0,",",".")?> - <?=number_format($job['JobMaxSalary'],0,",",".")?> $</p>
                                 </div>
                             </div>
                             <div class = "box-item">
                                 <img src="./images/man.png" alt="">
                                 <div>
                                     <h3>Number of Candidates</h3>
-                                    <p>5 candidates</p>
+                                    <p><?=$job['NumberOfCandidates']?> candidates</p>
                                 </div>
                             </div>
                             <div class = "box-item">
                                 <img src="./images/experience.png" alt="">
                                 <div>
                                     <h3>Year Of Experience</h3>
-                                    <p>4 Years</p>
+                                    <p><?=$experience['JobExperienceName']?></p>
                                 </div>
                             </div>
                             <div class = "box-item">
                                 <img src="./images/position.png" alt="">
                                 <div>
-                                    <h3>Position</h3>
-                                    <p>Employee</p>
+                                    <h3>Level</h3>
+                                    <p><?=$level['JobLevelName']?></p>
                                 </div>
                             </div>
                             <div class = "box-item">
                                 <img src="./images/suitcase.png" alt="">
                                 <div>
                                     <h3>Form Of Employment</h3>
-                                    <p>Full Time</p>
+                                    <p><?=$employment['EmploymentTypeName']?></p>
                                 </div>
                             </div>
                             <div class = "box-item">
                                 <img src="./images/work-location.png" alt="">
                                 <div>
                                     <h3>Working Location Type</h3>
-                                    <p>On-site</p>
+                                    <p><?=$location_type['JobLocationTypeName']?></p>
                                 </div>
                             </div>
                         </div>
@@ -75,58 +132,140 @@
                         <p>Working Location</p>
                         <div>
                             <img src = "./images/location.png" alt = "">
-                            <p>1234 An Duong Vuong, Ward 3, District 5, Sai Gon</p>
+                            <p><?=$job['JobLocation']?></p>
                         </div>
                     </div>
                     <div class = "job-description">
                         <h4>Job Description</h4>
                         <div class = "description-content">
-                            <ul>
-                                <li>Read and understand technical specifications, analyze product requirements, design features</li>
-                                <li>Develop and maintain applications</li>
-                                <li>Play in a dynamic, collaborative, transparent, non-hierarchical, and ego-free culture where your talent is valued over a role title</li>
-                                <li>Working in collaborative teams and building quality code. Help the team to champion software quality and engender technical vision and ensuring clients are satisfied</li>                            
-                            </ul>
+                            <?php
+                                $string_array = explode(".",str_replace("<br />","",$job['JobDescription']));
+                                ?>
+                                    <ul>
+                                <?php
+                                    foreach($string_array as $para){
+                                        if(!empty($para)){
+                                            ?>
+                                                <li><?=$para?></li>
+                                            <?php
+                                        }
+                                    }
+                                    ?>
+                                    </ul>
+                                <?php
+                            ?>
                         </div>
                     </div>
                     <div class = "job-requirements">
                         <h4>Job Requirements</h4>
                         <div class = "requirements-content">
-                            <ul>
-                                <li>Strong Computer Science (CS) fundamentals with Bachelor's Degree in CS (or similar technical field of study) or equivalent practical experience</li>
-                                <li>Have at least 1 year experience in working in Flutter Mobile Developer</li>
-                                <li>Excellent Object-oriented programming skills</li>
-                                <li>Experience with offline storage, threading, and performance tuning</li>
-                                <li>Proficient understanding of code versioning tools, such as Git</li>
-                                <li>Good willingness to learn new technologies required for work</li>
-                            </ul>
+                            <?php
+                                $string_array = explode(".",str_replace("<br />","",$job['JobRequirements']));
+                                ?>
+                                    <ul>
+                                <?php
+                                    foreach($string_array as $para){
+                                        if(!empty($para)){
+                                            ?>
+                                                <li><?=$para?></li>
+                                            <?php
+                                        }
+                                    }
+                                    ?>
+                                    </ul>
+                                <?php
+                            ?>
                         </div>
                     </div>
                     <div class = "job-benefits">
                         <h4>Job Benefits</h4>
                         <div class = "benefits-content">
-                            <ul>
-                                <li>13th-month salary</li>
-                                <li>Working hours: 8 hours x 5 days/week (4 days onsite, 1 day offsite)</li>
-                                <li>Have annual holidays and social insurance according to Vietnamese Government regulations</li>
-                                <li>Company health checkup</li>
-                                <li>Salary increase/Bonus</li>
-                                <li>Team Building</li>
-                            </ul>
+                            <?php
+                                $string_array = explode(".",str_replace("<br />","",$job['JobBenefits']));
+                                ?>
+                                    <ul>
+                                <?php
+                                    foreach($string_array as $para){
+                                        if(!empty($para)){
+                                            ?>
+                                                <li><?=$para?></li>
+                                            <?php
+                                        }
+                                    }
+                                    ?>
+                                    </ul>
+                                <?php
+                            ?>
                         </div>
                     </div>
                     <div class = "application-section">
                         <h4>Application</h4>
-                        <p>Applicants can apply to the job by pressing the "Apply Now" button below</p>
-                        <div class = "apply-button-group">
-                            <button class = "btn btn-fill button-apply-now">
-                                Apply Now
-                            </button>
-                            <button class = "btn btn-outline button-bookmark-job">
-                                Bookmark job
-                            </button>
-                        </div>
-                        <p>Application expiry date: 30/04/2023</p>
+                        <?php
+                            if($role === 'company'){
+                                ?>
+                                    <p>There has been <?=count($application)?> applicants apply for the job</p>
+                                <?php
+                            }
+                            else{
+                                ?>
+                                    <p>Applicants can apply to the job by pressing the "Apply Now" button below</p>
+                                    <div class = "apply-button-group">
+                                        <?php
+                                            if($role === 'seeker' && !$seeker_application_data){
+                                                ?>
+                                                    <form method = "post">
+                                                        <input type = "hidden" name = "action" value = "apply-job">
+                                                        <input type = "hidden" name = "job" value = "<?=$job['JobId']?>">
+                                                        <button type = "submit" class = "btn btn-fill button-apply-now">
+                                                            Apply Now
+                                                        </button>
+                                                    </form>
+                                                <?php
+                                            }
+                                            else if($role === 'seeker' && $seeker_application_data){
+                                                ?>
+                                                    <form method = "post">
+                                                        <input type = "hidden" name = "action" value = "unapply-job">
+                                                        <input type = "hidden" name = "job" value = "<?=$job['JobId']?>">
+                                                        <button type = "submit" class = "btn btn-fill button-apply-now">
+                                                            Unapply
+                                                        </button>
+                                                    </form>
+                                                <?php
+                                            }
+                                            if($role === 'seeker' && !$seeker_bookmark_data){
+                                                ?>
+                                                    <form method = "post">
+                                                        <input type = "hidden" name = "action" value = "bookmark-job">
+                                                        <input type = "hidden" name = "job" value = "<?=$job['JobId']?>">
+                                                        <button type = "submit" class = "btn btn-outline button-bookmark-job">
+                                                            Bookmark Job
+                                                        </button>
+                                                    </form>
+                                                <?php
+                                            }
+                                            else if($role === 'seeker' && $seeker_bookmark_data){
+                                                ?>
+                                                    <form method = "post">
+                                                        <input type = "hidden" name = "action" value = "remove-bookmark">
+                                                        <input type = "hidden" name = "job" value = "<?=$job['JobId']?>">
+                                                        <button type = "submit" class = "btn btn-outline button-bookmark-job">
+                                                            Remove Bookmark
+                                                        </button>
+                                                    </form>
+                                                <?php
+                                            }
+                                            if($role === ''){
+                                                ?>
+                                                    <a href = "?page=login" class = "btn btn-fill">Login Now</a>
+                                                <?php
+                                            }
+                                        ?>
+                                    </div>
+                                <?php
+                            }
+                        ?>
+                        <p>Application expiry date: <?=date("d/m/Y",strtotime($job['JobExpiryDate']))?></p>
                     </div>
                 </div>
                 <div class = "col-4 col-wrapper">
@@ -140,54 +279,36 @@
                         </div>
                     </div>
                     <div class = "job-type">
-                        <h4>Job Type</h4>
-                        <p>Information Technology</p>
+                        <h4>Job Field</h4>
+                        <p><?=$field['JobFieldName']?></p>
                     </div>
                     <div class = "job-skills">
                         <h4>Job Skills</h4>
                         <div class = "skills-card">
-                            <div class = "job-skill-card">ASP.NET Core</div>
-                            <div class = "job-skill-card">Window Form</div>
-                            <div class = "job-skill-card">C#</div>
+                            <?php
+                                foreach($skills as $s){
+                                    ?>
+                                        <div class = "job-skill-card"><?=$s['SkillName']?></div>
+                                    <?php
+                                }
+                            ?>
                         </div>
                     </div>
                     <div class = "company-job-recommendation">
                         <h4>Company vacancies available</h4>
-                        <div class = "job-recommendation-card">
-                            <img src="./images/google.png" alt="">
-                            <div>
-                                <h4>Google INC</h4>
-                                <a href="?job_details=2">Senior Angular Developer</a>
-                            </div>
-                        </div>
-                        <div class = "job-recommendation-card">
-                            <img src="./images/google.png" alt="">
-                            <div>
-                                <h4>Google INC</h4>
-                                <a href="?job_details=3">Senior Flutter Developer</a>
-                            </div>
-                        </div>
-                        <div class = "job-recommendation-card">
-                            <img src="./images/google.png" alt="">
-                            <div>
-                                <h4>Google INC</h4>
-                                <a href="?job_details=4">Senior Kotlin Developer</a>
-                            </div>
-                        </div>
-                        <div class = "job-recommendation-card">
-                            <img src="./images/google.png" alt="">
-                            <div>
-                                <h4>Google INC</h4>
-                                <a href="?job_details=5">Junior Kotlin Developer</a>
-                            </div>
-                        </div>
-                        <div class = "job-recommendation-card">
-                            <img src="./images/google.png" alt="">
-                            <div>
-                                <h4>Google INC</h4>
-                                <a href="?job_details=6">Junior PHP Developer</a>
-                            </div>
-                        </div>
+                        <?php
+                            foreach($recommend as $r){
+                                ?>
+                                    <div class = "job-recommendation-card">
+                                        <img src="<?=$job['CompanyImage']?>" alt="">
+                                        <div>
+                                            <h4><?=$job['CompanyName']?></h4>
+                                            <a href="?job_details=<?=$r['JobId']?>"><?=$r['JobName']?></a>
+                                        </div>
+                                    </div>
+                                <?php
+                            }
+                        ?>
                     </div>
                 </div>
             </div>

@@ -29,7 +29,7 @@
                 <p>8K Online everyday</p>
                 <p>2K project done by Financial Expert</p>
               </div>
-              <a href="?page=job&jobName=Finance" class="btn btn-outline btn-view-job">
+              <a href="?page=job&job-title=Finance" class="btn btn-outline btn-view-job">
                 View Financial Jobs
               </a>
             </div>
@@ -46,7 +46,7 @@
                 <p>12.4K Online everyday</p>
                 <p>4.5K project done by Developer</p>
               </div>
-              <a href="?page=job&jobName=Developer" class="btn btn-outline btn-view-job">
+              <a href="?page=job&job-title=Developer" class="btn btn-outline btn-view-job">
                 View Developer Jobs
               </a>
             </div>
@@ -63,7 +63,7 @@
                 <p>3.4K Online everyday</p>
                 <p>6K project done by Designer</p>
               </div>
-              <a href="?page=job&jobName=Designer" class="btn btn-outline btn-view-job">
+              <a href="?page=job&job-title=Designer" class="btn btn-outline btn-view-job">
                 View Designer Jobs
               </a>
             </div>

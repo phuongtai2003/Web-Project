@@ -5,7 +5,8 @@
                 <button onclick="changePanel(0)" class = "btn panel-button">Personal Information</button>
                 <button onclick="changePanel(1)" class = "btn panel-button">Change Password</button>
                 <button onclick="changePanel(2)" class = "btn panel-button">See Appliance Status</button>
-                <button onclick="changePanel(3)" class = "btn panel-button">Logout</button>
+                <button onclick="changePanel(3)" class = "btn panel-button">Upload CV</button>
+                <button onclick="changePanel(4)" class = "btn panel-button">Logout</button>
             </div>
             <div class = "col-9 col-wrapper">
                 <div style = "display: none" class = "personal-information-panel panel">
@@ -20,6 +21,7 @@
                                     name="firstname"
                                     id="firstname-field"
                                     placeholder="First Name"
+                                    value = "<?=$seeker_data['SeekerFirstName']?>"
                                     />
                                 </div>
                                 <div class="form-group col-6 name-group">
@@ -29,6 +31,7 @@
                                     name="lastname"
                                     id="lastname-field"
                                     placeholder="Last Name"
+                                    value = "<?=$seeker_data['SeekerLastName']?>"
                                     />
                                 </div>
                             </div>
@@ -39,6 +42,8 @@
                                     name="email"
                                     id="email-field"
                                     placeholder="Email"
+                                    value = "<?=$seeker_data['SeekerEmail']?>"
+                                    readonly
                                 />
                             </div>
                             <div class="form-group">
@@ -47,6 +52,7 @@
                                     type="date"
                                     name="birth-date"
                                     id="birth-date-field"
+                                    value = "<?=$seeker_data['SeekerBirthDate']?>"
                                 />
                             </div>
                             <div class="form-group country-group">
@@ -307,9 +313,77 @@
                                     <option value="Zimbabwe">Zimbabwe</option>
                                 </select>
                             </div>
+                            <div class="form-group">
+                                <label for="province-field">Province</label>
+                                <select id = "province-field" name = "province">
+                                    <option value="An Giang">An Giang</option>
+                                    <option value="Bà Rịa-Vũng Tàu">Bà Rịa-Vũng Tàu</option>
+                                    <option value="Bắc Giang">Bắc Giang</option>
+                                    <option value="Bắc Kạn">Bắc Kạn</option>
+                                    <option value="Bạc Liêu">Bạc Liêu</option>
+                                    <option value="Bắc Ninh">Bắc Ninh</option>
+                                    <option value="Bến Tre">Bến Tre</option>
+                                    <option value="Bình Định">Bình Định</option>
+                                    <option value="Bình Dương">Bình Dương</option>
+                                    <option value="Bình Phước">Bình Phước</option>
+                                    <option value="Bình Thuận">Bình Thuận</option>
+                                    <option value="Cà Mau">Cà Mau</option>
+                                    <option value="Cần Thơ">Cần Thơ</option>
+                                    <option value="Cao Bằng">Cao Bằng</option>
+                                    <option value="Đà Nẵng">Đà Nẵng</option>
+                                    <option value="Đắk Lắk">Đắk Lắk</option>
+                                    <option value="Đắk Nông">Đắk Nông</option>
+                                    <option value="Điện Biên">Điện Biên</option>
+                                    <option value="Đồng Nai">Đồng Nai</option>
+                                    <option value="Đồng Tháp">Đồng Tháp</option>
+                                    <option value="Gia Lai">Gia Lai</option>
+                                    <option value="Hà Giang">Hà Giang</option>
+                                    <option value="Hà Nam">Hà Nam</option>
+                                    <option value="Hà Nội">Hà Nội</option>
+                                    <option value="Hà Tĩnh">Hà Tĩnh</option>
+                                    <option value="Hải Dương">Hải Dương</option>
+                                    <option value="Hải Phòng">Hải Phòng</option>
+                                    <option value="Hậu Giang">Hậu Giang</option>
+                                    <option value="Hồ Chí Minh">Hồ Chí Minh</option>
+                                    <option value="Hòa Bình">Hòa Bình</option>
+                                    <option value="Hưng Yên">Hưng Yên</option>
+                                    <option value="Khánh Hòa">Khánh Hòa</option>
+                                    <option value="Kiên Giang">Kiên Giang</option>
+                                    <option value="Kon Tum">Kon Tum</option>
+                                    <option value="Lai Châu">Lai Châu</option>
+                                    <option value="Lâm Đồng">Lâm Đồng</option>
+                                    <option value="Lạng Sơn">Lạng Sơn</option>
+                                    <option value="Lào Cai">Lào Cai</option>
+                                    <option value="Long An">Long An</option>
+                                    <option value="Nam Định">Nam Định</option>
+                                    <option value="Nghệ An">Nghệ An</option>
+                                    <option value="Ninh Bình">Ninh Bình</option>
+                                    <option value="Ninh Thuận">Ninh Thuận</option>
+                                    <option value="Phú Thọ">Phú Thọ</option>
+                                    <option value="Phú Yên">Phú Yên</option>
+                                    <option value="Quảng Bình">Quảng Bình</option>
+                                    <option value="Quảng Nam">Quảng Nam</option>
+                                    <option value="Quảng Ngãi">Quảng Ngãi</option>
+                                    <option value="Quảng Ninh">Quảng Ninh</option>
+                                    <option value="Quảng Trị">Quảng Trị</option>
+                                    <option value="Sóc Trăng">Sóc Trăng</option>
+                                    <option value="Sơn La">Sơn La</option>
+                                    <option value="Tây Ninh">Tây Ninh</option>
+                                    <option value="Thái Bình">Thái Bình</option>
+                                    <option value="Thái Nguyên">Thái Nguyên</option>
+                                    <option value="Thanh Hóa">Thanh Hóa</option>
+                                    <option value="Thừa Thiên-Huế">Thừa Thiên-Huế</option>
+                                    <option value="Tiền Giang">Tiền Giang</option>
+                                    <option value="Trà Vinh">Trà Vinh</option>
+                                    <option value="Tuyên Quang">Tuyên Quang</option>
+                                    <option value="Vĩnh Long">Vĩnh Long</option>
+                                    <option value="Vĩnh Phúc">Vĩnh Phúc</option>
+                                    <option value="Yên Bái">Yên Bái</option>
+                                </select>
+                            </div>
                             <div class = "button-group">
-                                <button type="submit" class = "btn btn-fill">Save</button>
-                                <button type="reset" class = "btn btn-outline">Reset</button>
+                                <input type = "hidden" name = "update-seeker-info" value = "update">
+                                <button type="submit" class = "btn btn-fill save-info-btn">Save</button>
                             </div>
                         </div>
                     </form>
@@ -336,7 +410,7 @@
                             />
                         </div>
                         <div class="form-group">
-                            <label for="new-password-confirm-field">Confirm Your Old Password</label>
+                            <label for="new-password-confirm-field">Confirm Your New Password</label>
                             <input
                                 type="password"
                                 name="new-password-confirm"
@@ -352,45 +426,77 @@
                 </div>
                 <div style = "display: none;" class = "panel appliance-status-panel">
                     <h4>Applied Jobs Status</h4>
-                    <div class = "job-applied-card">
-                        <div class = "job-applied-header">
-                            <img src="./images/google.png" alt="Google Image">
-                            <div>
-                                <h4>Google IIC</h4>
-                                <p>Senior C# Developer</p>
-                                <p>Date Applied: 16/04/2023</p>
-                                <p>Status: Reviewing</p>
+                    <?php
+                        foreach($applied_jobs_data as $j){
+                            ?>
+                                <div class = "job-applied-card">
+                                    <div class = "job-applied-header">
+                                        <img src="<?=$j['CompanyImage']?>" alt="<?=$j['CompanyName']?> Image">
+                                        <div>
+                                            <h4><?=$j['CompanyName']?></h4>
+                                            <a style ="font-size:16px; color: var(--primary-color)" href = "?job_details=<?=$j['JobId']?>"><?=$j['JobName']?></a>
+                                            <p>Date Applied: <?=date("d/m/Y", strtotime($j['ApplyDate']))?></p>
+                                            <p>Status: <?=$j['ApplyStatus'] === 0 ? 'Reviewing' : "Accepted - Interview on ".date("d/m/Y",strtotime($j['InterviewDate']))." at ".$j['InterviewTime'] ?></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            <?php
+                        }
+                    ?>
+                </div>
+                <div style = "display:none;" class = "panel upload-cv-panel">
+                    <h4>Upload CV</h4>
+                    <form method = "post" enctype="multipart/form-data">
+                        <div class = "form-group">
+                            <label for="cv-file-field">CV File</label>
+                            <div class = "input-cv-field">
+                                <i class="fa-solid fa-folder"></i>
+                                <input
+                                    type="file"
+                                    name="upload-file"
+                                    id="cv-file-field"
+                                    
+                                />
+                                <p class = "file-name">Choose an image</p>
                             </div>
                         </div>
-                    </div>
-                    <div class = "job-applied-card">
-                        <div class = "job-applied-header">
-                            <img src="./images/twitter.png" alt="Twitter Image">
-                            <div>
-                                <h4>Twitter LLC</h4>
-                                <p>Senior C# Developer</p>
-                                <p>Date Applied: 16/04/2023</p>
-                                <p>Status: Reviewing</p>
-                            </div>
+                        <input type = "hidden" name = "save-seeker-cv" value = "save">
+                        <div class = "button-group">
+                            <button type = "submit" class=  "btn btn-fill save-img-btn">Save</button>
+                            <button type = "reset" class=  "btn btn-outline reset-img-btn">Reset</button>
                         </div>
-                    </div>
-                    <div class = "job-applied-card">
-                        <div class = "job-applied-header">
-                            <img src="./images/fb.png" alt="Facebook">
-                            <div>
-                                <h4>Facebook LLC</h4>
-                                <p>Senior C# Developer</p>
-                                <p>Date Applied: 16/04/2023</p>
-                                <p>Status: Reviewing</p>
-                            </div>
-                        </div>
-                    </div>
+                    </form>
                 </div>
                 <div style = "display:none;" class = "panel logout-panel">
                     <h2>Do you want to log out?</h2>
                     <a href="?page=logout" class = "btn btn-fill logout-button">Yes</a>
                 </div>
+                <?php 
+                if(!empty($error_seeker)){
+                    ?>
+                        <div class = "alert"><?=$error_seeker?></div>
+                    <?php
+                }
+                ?>
+                <?php if(!empty($msg_seeker)){
+                    ?>
+                        <div class = "alert"><?=$msg_seeker?></div>
+                    <?php
+                    }
+                ?>
             </div>
         </div>
     </div>
 </div>
+
+<script>
+    $("#country-field").val("<?=$seeker_data['SeekerNationality']?>");
+    $("#province-field").val("<?=$seeker_data['SeekerProvince']?>");
+    $("#cv-file-field").on("change", function(){
+        let fileName = $("#cv-file-field")[0].files[0].name;
+        $(".file-name").html(fileName);
+    });
+    $(".reset-img-btn").on("click", function(){
+        $(".file-name").html("Choose an image");
+    });
+</script>
