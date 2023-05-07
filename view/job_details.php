@@ -1,11 +1,11 @@
 <div class = "container job-details-container">
     <div class = "job-details-header">
         <div class = "img-container">
-            <img src="<?=$job['CompanyImage']?>" alt="<?=$job['CompanyName']?> Image">
+            <img src="<?=$job['CompanyImage']  ==  null ? "./images/defaultCompany.png" : $job['CompanyImage'] ?>" alt="<?=$job['CompanyName']?> Image">
         </div>
         <div class = "company-job-title">
             <h3><?=$job['JobName']?></h3>
-            <h5><?=$job['CompanyName']?></h5>
+            <a style = "color: var(--primary-color)" href = "?comp_details=<?=$job['CompanyId']?>"><h5><?=$job['CompanyName']?></h5></a>
             <p>Expiry Date: <?=date("d/m/Y",strtotime($job['JobExpiryDate']))?></p>
         </div>
         <div class = "button-group">
@@ -300,7 +300,7 @@
                             foreach($recommend as $r){
                                 ?>
                                     <div class = "job-recommendation-card">
-                                        <img src="<?=$job['CompanyImage']?>" alt="">
+                                        <img src="<?=$job['CompanyImage'] == null ? "./images/defaultCompany.png" : $job['CompanyImage']?>" alt="">
                                         <div>
                                             <h4><?=$job['CompanyName']?></h4>
                                             <a href="?job_details=<?=$r['JobId']?>"><?=$r['JobName']?></a>

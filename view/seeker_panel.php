@@ -419,6 +419,7 @@
                             />
                         </div>
                         <div class = "button-group">
+                            <input type = "hidden" name = "change-seeker-password" value = "update">
                             <button type="submit" class = "btn btn-fill">Save</button>
                             <button type="reset" class = "btn btn-outline">Reset</button>
                         </div>
@@ -431,7 +432,7 @@
                             ?>
                                 <div class = "job-applied-card">
                                     <div class = "job-applied-header">
-                                        <img src="<?=$j['CompanyImage']?>" alt="<?=$j['CompanyName']?> Image">
+                                        <img src="<?=$j['CompanyImage'] ==null ? "./images/defaultCompany.png" : $j['CompanyImage'] ?>" alt="<?=$j['CompanyName']?> Image">
                                         <div>
                                             <h4><?=$j['CompanyName']?></h4>
                                             <a style ="font-size:16px; color: var(--primary-color)" href = "?job_details=<?=$j['JobId']?>"><?=$j['JobName']?></a>

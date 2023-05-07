@@ -108,6 +108,33 @@
             }
             return array("code" => 0, "msg" => "Update company data successfully");
         }
+        public function change_password($id, $old_password, $new_password){
+            $sql = "select * from company where CompanyId = ?";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bind_param("i", $id);
+            if(!$stmt->execute()){
+                return array("code" => 1, "error" => "Something went wrong");
+            }
+            $res = $stmt->get_result();
+            if($res->num_rows != 1){
+                return array("code" => 2, "error" => "Company does not exist");
+            }
+            $company_data = $res->fetch_assoc();
+            $isValid =  password_verify($old_password, $company_data['CompanyPassword']);
+            if($isValid){
+                $new_hashed_password = password_hash($new_password, PASSWORD_DEFAULT);
+                $sql = "update company set CompanyPassword = ? where CompanyId = ?";
+                $stmt = $this->conn->prepare($sql);
+                $stmt->bind_param("si", $new_hashed_password, $id);
+                if(!$stmt->execute()){
+                    return array("code" => 1, "error" => "Something went wrong");
+                }
+                return array("code" => 0, "msg" => "Changed password successfully");
+            }
+            else{
+                return array("code" => 3, "error" => "Old password does not match");
+            }
+        }
 
         private function email_exist($email){
             $sql = "select * from seeker where SeekerEmail = ?";

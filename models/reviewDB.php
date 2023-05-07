@@ -58,7 +58,7 @@
             return array("code" => 0, "msg" => "Fetch data successfully", "rating" => $rating);
         }
         public function get_top_three(){
-            $sql = "select company.*, AVG(companyreview.ReviewRating) as Average FROM company, companyreview where company.CompanyId = companyreview.CompanyId group by companyreview.CompanyId order by Average desc limit 3";
+            $sql = "select company.*, IFNULL(AVG(companyreview.ReviewRating),0) as Average FROM company LEFT JOIN companyreview ON company.CompanyId = companyreview.CompanyId group by companyreview.CompanyId order by Average desc limit 3";
             $stmt = $this->conn->prepare($sql);
             if(!$stmt->execute()){
                 return array("code" => 1, "error" => "Something went wrong");

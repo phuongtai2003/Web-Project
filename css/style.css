@@ -789,6 +789,8 @@ footer {
 }
 
 .company-card .company-card-body {
+  height: 200px;
+  overflow-y: scroll;
   padding: 5px 15px;
 }
 

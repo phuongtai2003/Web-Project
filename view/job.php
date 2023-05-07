@@ -54,10 +54,10 @@
               <form method = 'post'></form>
                 <div class="job-item">
                   <div class="job-header">
-                    <img src="<?=$display_job[$i]['CompanyImage']?>" alt="" />
+                    <img src="<?=$display_job[$i]['CompanyImage'] ==null ?"./images/defaultCompany.png" : $display_job[$i]['CompanyImage'] ?>" alt="" />
                     <div class="job-company">
                       <a href="?job_details=<?=$display_job[$i]['JobId']?>" class="job-name"><?=$display_job[$i]['JobName']?></a>
-                      <h3><?=$display_job[$i]['CompanyName']?></h3>
+                      <a style = "font-size: 18px; color: var(--primary-color); display:block" href = "?comp_details=<?=$display_job[$i]['CompanyId']?>"><?=$display_job[$i]['CompanyName']?></a>
                     </div>
                     <?php 
                       if($role === 'seeker' && !$bookmark_data[$i]){

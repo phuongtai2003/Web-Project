@@ -13,7 +13,7 @@
   ?>
   <div class="company-detail-header">
     <div class="img-container">
-      <img src="<?=$company_info['CompanyImage']?>" alt="" />
+      <img src="<?=$company_info['CompanyImage'] == null ? "./images/defaultCompany.png" : $company_info['CompanyImage'] ?>" alt="" />
     </div>
     <div class="company-name">
       <h1><?=$company_info['CompanyName']?></h1>
@@ -99,7 +99,7 @@
           ?>
             <div class = "company-job-item">
               <div class = "job-item-header">
-                <img src="<?=$company_info['CompanyImage']?>" alt="<?=$company_info['CompanyName']?> Image">
+                <img src="<?=$company_info['CompanyImage'] == null ? "./images/defaultCompany.png" : $company_info['CompanyImage'] ?>" alt="<?=$company_info['CompanyName']?> Image">
                 <div class = "company-job-title">
                   <h4><?=$company_info['CompanyName']?></h4>
                   <p><?=$job_info[$i]['JobName']?></p>

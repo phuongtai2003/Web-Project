@@ -15,7 +15,7 @@
           <div class="col-4">
             <div class="company-card">
               <div class="company-card-header">
-                <img src="<?=$company['CompanyImage']?>" alt="<?=$company['CompanyName']?> image" />
+                <img src="<?=$company['CompanyImage'] == null ? "./images/defaultCompany.png" : $company['CompanyImage'] ?>" alt="<?=$company['CompanyName']?> image" />
                 <h3 class="company-name"><?=$company['CompanyName']?></h3>
               </div>
               <div class="company-card-body">

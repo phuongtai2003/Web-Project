@@ -130,6 +130,73 @@
             }
         }
     }
+    if(isset($_POST['change-seeker-password']) && $_POST['change-seeker-password'] === "update"){
+        $old_password = $_POST['old-password'] ?? '';
+        $new_password = $_POST['new-password'] ?? '';
+        $new_password_confirm = $_POST['new-password-confirm'] ?? '';
+        if(empty($old_password) || empty($new_password) || empty($new_password_confirm)){
+            $error_seeker = "Do not left any password fields empty";
+        }
+        else if($new_password !== $new_password_confirm){
+            $error_seeker = "New passwords do not match";
+        }
+        else{
+            $data = json_encode(array(
+                "old_password" => $old_password,
+                "new_password" => $new_password,
+                "new_confirm_password" => $new_password_confirm
+            ));
+
+            $ch = curl_init();
+            curl_setopt($ch, CURLOPT_URL, "http://localhost/models/api/seeker/changePassword.php");
+            curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+            curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json,' ,'X-Auth-Token: '.$_SESSION['userId']));
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+            $return_result = json_decode(curl_exec($ch), true);
+            if($return_result['status']){
+                $msg_seeker = $return_result['msg'];
+            }
+            else{
+                $error_seeker = $return_result['error'];
+            }
+        }
+    }
+
+    if(isset($_POST['change-company-password']) && $_POST['change-company-password'] === "update"){
+        $old_password = $_POST['old-password'] ?? '';
+        $new_password = $_POST['new-password'] ?? '';
+        $new_password_confirm = $_POST['new-password-confirm'] ?? '';
+        if(empty($old_password) || empty($new_password) || empty($new_password_confirm)){
+            $error_company = "Do not left any password fields empty";
+        }
+        else if($new_password !== $new_password_confirm){
+            $error_company = "New passwords do not match";
+        }
+        else{
+            $data = json_encode(array(
+                "old_password" => $old_password,
+                "new_password" => $new_password,
+                "new_confirm_password" => $new_password_confirm
+            ));
+
+            $ch = curl_init();
+            curl_setopt($ch, CURLOPT_URL, "http://localhost/models/api/seeker/changePassword.php");
+            curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+            curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json,' ,'X-Auth-Token: '.$_SESSION['userId']));
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+            $return_result = json_decode(curl_exec($ch), true);
+            if($return_result['status']){
+                $msg_company = $return_result['msg'];
+            }
+            else{
+                $error_company = $return_result['error'];
+            }
+        }
+    }
     
     $seeker_data = array();
     $company_data = array();

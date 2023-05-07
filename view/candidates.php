@@ -24,7 +24,7 @@
                             <p>Province: <?=$candidate['SeekerProvince']?></p>
                         </div>
                         <div class = "candidate-button-group">
-                            <a target="_blank" rel="noopener noreferrer" href = "<?=$candidate['SeekerCV'] == null ? "https://linkedin.com":  $candidate['SeekerCV']?>" class = "btn btn-fill view-cv-btn">View CV</a>
+                            <a target="_blank" rel="noopener noreferrer" href = "<?=$candidate['SeekerCV'] == null ? "":  $candidate['SeekerCV']?>" class = "btn btn-fill view-cv-btn"><?=$candidate['SeekerCV'] == null ? "Seeker has no CV":  "View CV" ?></a>
                             <form style = "width: 100%;" method = "post">
                                 <input type = "hidden" name = "action" value = "dismiss-applicant">
                                 <input type = "hidden" name = "seeker" value = "<?=$candidate['SeekerId']?>">

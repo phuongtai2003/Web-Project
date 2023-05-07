@@ -385,7 +385,7 @@
             </div>
             <div style = "display:none;" class = "panel change-password-panel">
                 <h4>Change Password</h4>
-                <form>
+                <form method = "post">
                     <div class = "form-group">
                         <label for="old-password-field">Enter Your Old Password</label>
                         <input
@@ -414,7 +414,8 @@
                         />
                     </div>
                     <div class = "button-group">
-                        <button type = "button" class = "btn btn-fill">Save</button>
+                        <input type = "hidden" name = "change-company-password" value = "update">
+                        <button type = "submit" class = "btn btn-fill">Save</button>
                         <button type = "reset" class = "btn btn-outline">Reset</button>
                     </div>
                 </form>
@@ -422,7 +423,7 @@
             <div style = "display: none;" class = "panel upload-image-panel">
                 <h4>Upload Company Image</h4>
                 <div class = "display-image-container">
-                    <img style = "width: 100%; height: 100%;" class = "display-image" src = "<?=$company_data['CompanyImage']?>">
+                    <img style = "width: 100%; height: 100%;" class = "display-image" src = "<?=$company_data['CompanyImage'] == null ? "./images/defaultCompany.png" : $company_data['CompanyImage'] ?>">
                 </div>
                 <form method = "post" enctype="multipart/form-data">
                     <div class = "form-group">

@@ -17,7 +17,7 @@
             foreach($bookmark_job as $j){
                 ?>
                     <div class = "bookmark-job-item">
-                        <img src = "<?=$j['CompanyImage']?>" alt = "<?=$j['CompanyName']?> Image">
+                        <img src = "<?=$j['CompanyImage'] ==null ? "./images/defaultCompany.png" : $j['CompanyImage'] ?>" alt = "<?=$j['CompanyName']?> Image">
                         <div class = "bookmark-job-header">
                             <h3><?=$j['CompanyName']?></h3>
                             <p><?=$j['JobName']?></p>
